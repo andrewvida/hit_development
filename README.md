@@ -1,24 +1,36 @@
-# README
+# Hendrick IT (HIT)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Simple platform for showcasing HIT. Acts as Marketing and Information Directory
 
-Things you may want to cover:
+## Modeling Ideas
 
-* Ruby version
+Here are some rules around Users, Posts and the like:
 
-* System dependencies
+### Users
+`user:{ name, email, department, type, [tags]}`
 
-* Configuration
+Types:
 
-* Database creation
+- `executive`
+- `department_head`
+- `author`
 
-* Database initialization
+#### Executive
+The `executive` privilage can post `announements` that are displayed on all `department` views. Example: `Hendrick IT offices will be closed Friday!`
 
-* How to run the test suite
+#### Department Head
+The `department_head` privilage can post `announements`, `stories`, `FAQs`, `resources` and `staff`. These posts are limitted to their `Department` views.
 
-* Services (job queues, cache servers, search engines, etc.)
+#### Author
+The `author` privilage can post `stories`, `resources`, `staff`. These posts are limitted to their `Department` views.
 
-* Deployment instructions
+### Posts
+`post:{ title, description, department, type, image, [tags]}`
 
-* ...
+Types:
+
+- `announcements`
+- `story`
+- `FAQ`
+- `resource`
+- `staff`
