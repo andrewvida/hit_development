@@ -1,0 +1,64 @@
+@mixin flex() {
+  display: flex;
+}
+
+@mixin box($value: 0 0 auto) {
+  flex: $value;
+}
+
+@mixin shadow($size:"small") {
+  @if $size == "small" {
+    $value:0 2px 5px 0 rgba(0, 0, 0, 0.26);
+    box-shadow:$value;
+    -webkit-box-shadow:$value;
+    -moz-box-shadow:$value;
+  } @else {
+    $value:0 8px 17px 0 rgba(0, 0, 0, 0.2);
+    box-shadow:$value;
+    -webkit-box-shadow:$value;
+    -moz-box-shadow:$value;
+  }
+}
+
+@mixin box-shadow($options) {
+  box-shadow:$options;
+  -webkit-box-shadow:$options;
+  -moz-box-shadow:$options;
+}
+
+@mixin placeholder($color) {
+  &::-moz-placeholder {
+    color: $color;
+    opacity: 1; // Override Firefox's unusual default opacity; see https://github.com/twbs/bootstrap/pull/11526
+  }
+  &:-ms-input-placeholder { color: $color; } // Internet Explorer 10+
+  &::-webkit-input-placeholder  { color: $color; } // Safari and Chrome
+}
+
+@mixin border-radius($rad:$radius) {
+  border-radius: $rad;
+}
+
+// FUNCTIONS & LOOPS
+// ===============================================
+@function rem($size, $base-font-size: 16) {
+  $remSize: $size / $base-font-size;
+  @return #{$remSize}rem;
+}
+
+$spaceamounts: (0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+@each $space in $spaceamounts {
+  // Margins
+  .m-#{$space} { margin: #{$space}rem; }
+  .mt-#{$space} { margin-top: #{$space}rem; }
+  .mb-#{$space} { margin-bottom: #{$space}rem; }
+  .ml-#{$space} { margin-left: #{$space}rem; }
+  .mr-#{$space} { margin-right: #{$space}rem; }
+
+  // Padding
+  .p-#{$space} { padding: #{$space}rem; }
+  .pt-#{$space} { padding-top: #{$space}rem; }
+  .pb-#{$space} { padding-bottom: #{$space}rem; }
+  .pl-#{$space} { padding-left: #{$space}rem; }
+  .pr-#{$space} { padding-right: #{$space}rem; }
+}

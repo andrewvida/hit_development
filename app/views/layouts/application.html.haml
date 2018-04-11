@@ -3,8 +3,19 @@
   %head
     %title HitRails
     = csrf_meta_tags
-    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
-    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+
+    / Hendrick Apps Global CSS
+    %link{:href => "//v2-styleguide.hendrickapps.com/assets/stylesheets/main.bundle-5386506b.css", :rel => "stylesheet"}
+
+    / Google Fonts
+    %link{:href => "//fonts.googleapis.com/css?family=Titillium+Web:300,700|Muli:300,300i,700,900,900i", :rel => "stylesheet"}
+
+    / Font Awesome
+    %script{:defer => "defer", :src => "//use.fontawesome.com/releases/v5.0.6/js/all.js"}
+
+    = stylesheet_link_tag 'application', media: 'all'
+
+
   %body
     =link_to 'Home', root_path
     =link_to 'Posts', posts_path
@@ -13,3 +24,16 @@
     %hr
 
     = yield
+
+    / jQuery
+    %script{:crossorigin => "anonymous", :integrity => "sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=", :src => "https://code.jquery.com/jquery-3.3.1.min.js"}
+
+    / BS4
+    %script{:crossorigin => "anonymous", :integrity => "sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q", :src => "https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"}
+    %script{:crossorigin => "anonymous", :integrity => "sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl", :src => "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"}
+
+
+    = javascript_include_tag 'application'
+
+
+

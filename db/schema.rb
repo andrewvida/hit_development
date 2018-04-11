@@ -12,16 +12,13 @@
 
 ActiveRecord::Schema.define(version: 20180411000852) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
   create_table "departments", force: :cascade do |t|
     t.string "department_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "gutentag_taggings", id: :serial, force: :cascade do |t|
+  create_table "gutentag_taggings", force: :cascade do |t|
     t.integer "tag_id", null: false
     t.integer "taggable_id", null: false
     t.string "taggable_type", null: false
@@ -32,7 +29,7 @@ ActiveRecord::Schema.define(version: 20180411000852) do
     t.index ["taggable_type", "taggable_id"], name: "index_gutentag_taggings_on_taggable_type_and_taggable_id"
   end
 
-  create_table "gutentag_tags", id: :serial, force: :cascade do |t|
+  create_table "gutentag_tags", force: :cascade do |t|
     t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -44,8 +41,8 @@ ActiveRecord::Schema.define(version: 20180411000852) do
   create_table "posts", force: :cascade do |t|
     t.string "title"
     t.text "details"
-    t.bigint "department_id"
-    t.bigint "user_id"
+    t.integer "department_id"
+    t.integer "user_id"
     t.integer "post_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -57,13 +54,10 @@ ActiveRecord::Schema.define(version: 20180411000852) do
     t.string "name"
     t.string "email"
     t.string "title"
-    t.bigint "department_id"
+    t.integer "department_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["department_id"], name: "index_users_on_department_id"
   end
 
-  add_foreign_key "posts", "departments"
-  add_foreign_key "posts", "users"
-  add_foreign_key "users", "departments"
 end
