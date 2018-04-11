@@ -1,2 +1,28 @@
-%h1 Home#index
-%p Find me in app/views/home/index.html.erb
+%span Home#index
+%h1
+  Results for Objects tagged with:
+  %kbd ['projects', 'dealerships']
+
+.panel
+  %h2="Department Results - #{@results[:depts].count}"
+  %ul
+    -@results[:depts].each do |result|
+      %li
+        %b=result.department_name
+        %i=result.tag_names
+
+.panel
+  %h2="User Results - #{@results[:users].count}"
+  %ul
+    -@results[:users].each do |result|
+      %li
+        %b=result.name
+        %i=result.tag_names
+
+.panel
+  %h2="Post Results - #{@results[:posts].count}"
+  %ul
+    -@results[:posts].each do |result|
+      %li
+        %b=truncate(result.title, length: 50)
+        %i=result.tag_names

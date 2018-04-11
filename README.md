@@ -37,5 +37,6 @@ Types:
 
 ## 3rd Party
 
-- [acts-as-taggable-on](https://github.com/mbleigh/acts-as-taggable-on)
+
+- [gutentag](https://github.com/pat/gutentag#installation)
 - [cancan](https://github.com/ryanb/cancan)
