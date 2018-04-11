@@ -2,3 +2,167 @@
 @import "shared/vars";
 @import "shared/mixins";
 @import "shared/tag-search-control";
+@import "shared/footer";
+
+body {
+  background: $dark;
+
+  #application-container {
+    background: $white;
+  }
+}
+
+#welcome-container {
+  background: $brand url(/web-images/welcome-image.jpg) no-repeat;
+  background-position: top center;
+  background-size: 100%;
+  min-height: rem(600);
+  border-bottom: 1px solid $light;
+
+  .welcome-message {
+    position: relative;
+    top: rem(100);
+
+    span {
+      font-family: 'Titillium Web';
+      display: block;
+      font-weight: 300;
+      color: $dark;
+      font-size: rem(40);
+
+      &.highlight {
+        font-weight: 700;
+        color: $gold;
+      }
+    }
+  }
+}
+
+#team-counter,
+#car-counter {
+  #counter {}
+  .message {
+    margin-top: rem(50);
+    text-align: center;
+
+    h1:after {
+      margin: rem(20) auto;
+    }
+  }
+}
+
+#team-counter {
+  padding: rem(150) 0 rem(450) 0;
+  background: $white url(/web-images/teammates-image.png) no-repeat;
+  background-position: bottom center;
+  background-size: 65%;
+}
+
+#car-counter {
+  background: $white;
+  background-position: bottom center;
+  padding: rem(150) 0;
+}
+
+#brand-partners {
+  margin: rem(40) 0;
+  .logos {
+    @include flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    .logo {
+      width: 10%;
+      text-align: center;
+      opacity: 0.5;
+      img {
+        width: rem(100);
+      }
+    }
+  }
+}
+
+#feature-container {
+  .blocks {
+    @include flex;
+    flex-wrap: wrap;
+    border-top: 1px solid $light;
+
+    article {
+      width: 50%;
+      padding: rem(80);
+      border-right: 1px solid $light;
+      border-bottom: 1px solid $light;
+
+      h3 {
+        transition: all 0.3s;
+        &:after { transition: all 0.3s; }
+      }
+
+      &:nth-child(even) { border-right: none; }
+
+      .icon {
+        font-size: rem(50);
+        margin-bottom: rem(20);
+      }
+
+      &:hover {
+        h3 {
+          color: $blue;
+          &:after { width: 30%; }
+        }
+      }
+    }
+  }
+}
+
+#map-container {
+  background: $light;
+  .map-container {
+    iframe {
+      width: 100%;
+      height: rem(600);
+    }
+  }
+}
+
+// Counter Component
+// ===================================
+#counter {
+  @include flex;
+  justify-content: center;
+
+  .numbers {
+    min-width: rem(350);
+    position: relative;
+
+    &:after {
+      content: '';
+      display: block;
+      width: 100%;
+      position: absolute;
+      height: 1px;
+      background: $white;
+      top: 50%;
+    }
+    span {
+      @include border-radius;
+      border-bottom: 3px solid $brand;
+      text-align: center;
+      font-family: 'Titillium Web';
+      display: inline-block;
+      font-weight: 700;
+      color: $white;
+      background: $blue;
+      font-size: rem(60);
+      padding: rem(10) rem(20);
+
+      &.comma {
+        border-bottom: none;
+        background: $white;
+        color: $blue;
+        padding: rem(10);
+      }
+    }
+  }
+}

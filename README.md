@@ -40,3 +40,5 @@ Types:
 
 - [gutentag](https://github.com/pat/gutentag#installation)
 - [cancan](https://github.com/ryanb/cancan)
+- [faker](https://github.com/stympy/faker)
+

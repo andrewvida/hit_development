@@ -1,0 +1,38 @@
+#footer {
+  background: $dark;
+  padding: rem(80) 0;
+
+  .footer-container {
+    .blocks {
+      @include flex;
+      justify-content: space-between;
+      align-items: flex-start;
+
+      .block {
+        img {
+          width: rem(150);
+        }
+        a,label {
+          display: block;
+        }
+
+        a {
+          text-decoration: none;
+          color: $halfwhite;
+        }
+
+        &.links.social {
+          a {
+            display: inline-block;
+            margin-right: rem(20);
+          }
+        }
+        &.links {
+          label {
+            color: $blue;
+          }
+        }
+      }
+    }
+  }
+}
