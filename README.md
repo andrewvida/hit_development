@@ -34,3 +34,8 @@ Types:
 - `FAQ`
 - `resource`
 - `staff`
+
+## 3rd Party
+
+- [acts-as-taggable-on](https://github.com/mbleigh/acts-as-taggable-on)
+- [cancan](https://github.com/ryanb/cancan)

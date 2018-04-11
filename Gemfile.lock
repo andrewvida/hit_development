@@ -78,6 +78,8 @@ GEM
     ffi (1.9.23)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
+    gutentag (2.3.1)
+      activerecord (>= 3.2.0)
     haml (5.0.4)
       temple (>= 0.8.0)
       tilt
@@ -196,6 +198,7 @@ DEPENDENCIES
   capybara (~> 2.13)
   coffee-rails (~> 4.2)
   faker!
+  gutentag (~> 2.3)
   haml
   jbuilder (~> 2.5)
   listen (>= 3.0.5, < 3.2)
