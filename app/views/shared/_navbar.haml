@@ -1,4 +1,4 @@
-%header#navbar
+%header#navbar.container
   %nav.navbar.navbar-expand-lg.navbar-light.bg-white
     %a.navbar-brand{:href => "/"}
       %svg.hendrick-logo.brand{:viewbox => "0 0 300 85", :x => "0px", :y => "0px"}
@@ -20,6 +20,7 @@
     %button.navbar-toggler{"aria-controls" => "navbarSupportedContent", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarSupportedContent", "data-toggle" => "collapse", :type => "button"}
       %span.navbar-toggler-icon
     #navbarSupportedContent.collapse.navbar-collapse
+
       %ul.navbar-nav.mr-auto
         %li.nav-item.active
           %a.nav-link{:href => "#"}
@@ -46,7 +47,11 @@
             =link_to 'Departments', departments_path, {class: 'dropdown-item'}
 
         %li.nav-item
-          %a.nav-link{:href => "/search.html"} Need Help?
+          %form.form-inline.my-2.my-lg-0{action:home_search_path}
+            %input.form-control.mr-sm-2{:placeholder => "Search", :type => "search", name:'terms'}
+
+
+
 
 
       .my-2.my-lg-0
