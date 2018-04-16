@@ -20,45 +20,25 @@
     %button.navbar-toggler{"aria-controls" => "navbarSupportedContent", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarSupportedContent", "data-toggle" => "collapse", :type => "button"}
       %span.navbar-toggler-icon
     #navbarSupportedContent.collapse.navbar-collapse
-
       %ul.navbar-nav.mr-auto
-        %li.nav-item.active
+        %li#tour-announcements.nav-item
           %a.nav-link{:href => "#"}
             Announcements
             %span.badge.badge-pill.badge-danger 2
             %span.sr-only (current)
-        %li.nav-item.dropdown
+        %li#tour-departments.nav-item.dropdown
           %a#navbarDropdown.nav-link.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
             Departments
           .dropdown-menu{"aria-labelledby" => "navbarDropdown"}
-            %a.dropdown-item{:href => "/department.html"} Engineering
-            %a.dropdown-item{:href => "/department.html"} Operations
-            %a.dropdown-item{:href => "/department.html"} Purchasing
-            %a.dropdown-item{:href => "/department.html"} Software
-            %a.dropdown-item{:href => "/department.html"} Project Management
+            -get_departments.each do |dept|
+              %a.dropdown-item{href: department_path(dept) }=dept.department_name
 
-        %li.nav-item.dropdown
-          %a#navbarDropdown.nav-link.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
-            Dev Navigation
-          .dropdown-menu{"aria-labelledby" => "navbarDropdown"}
-            =link_to 'Home', root_path, {class: 'dropdown-item'}
-            =link_to 'Posts', posts_path, {class: 'dropdown-item'}
-            =link_to 'Users', users_path, {class: 'dropdown-item'}
-            =link_to 'Departments', departments_path, {class: 'dropdown-item'}
+      .row
+        .col
+          %form#tour-search.form-inline{action:home_search_path}
+            %input.form-control{:placeholder => "Search", :type => "search", name:'terms'}
 
-        %li.nav-item
-          %form.form-inline.my-2.my-lg-0{action:home_search_path}
-            %input.form-control.mr-sm-2{:placeholder => "Search", :type => "search", name:'terms'}
-
-
-
-
-
-      .my-2.my-lg-0
-        %a.btn.btn-outline-primary.my-2.my-sm-0{href:'/careers.html'}
-          %span.badge.badge-primary NEW
-          Careers
-
-
-
-
+        .col
+          %a#tour-careers.btn.btn-outline-primary{href:'/careers.html'}
+            %span.badge.badge-primary NEW
+            Careers

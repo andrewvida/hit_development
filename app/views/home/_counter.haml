@@ -1,0 +1,4 @@
+.counter-element
+  .numbers
+    -number.split(//).each do |char|
+      %span{class: char === ',' ? 'comma' : ''}=char

@@ -38,45 +38,27 @@ body {
   }
 }
 
-#team-counter,
-#car-counter {
-  #counter {}
-  .message {
-    margin-top: rem(50);
-    text-align: center;
-
-    h1:after {
-      margin: rem(20) auto;
-    }
-  }
-}
-
-#team-counter {
-  padding: rem(150) 0 rem(450) 0;
+#teammates {
   background: $white url(/web-images/teammates-image.png) no-repeat;
   background-position: bottom center;
-  background-size: 65%;
-}
-
-#car-counter {
-  background: $white;
-  background-position: bottom center;
+  background-size: 85%;
   padding: rem(150) 0;
-}
+  .container {
+    display: flex;
+    flex-direction: row-reverse;
 
-#brand-partners {
-  margin: rem(40) 0;
-  .logos {
-    @include flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    .message {
+      flex: 0 0 auto;
+      width: 60%;
+      text-align: left;
+      background: rgba($white, 0.9);
+      padding: rem(50)
+    }
 
-    .logo {
-      width: 10%;
-      text-align: center;
-      opacity: 0.5;
-      img {
-        width: rem(100);
+    .message {
+      .counter-element {
+        margin-bottom: rem(20);
+        justify-content: left;
       }
     }
   }
@@ -101,10 +83,16 @@ body {
 
       &:nth-child(even) { border-right: none; }
 
-      .icon {
-        font-size: rem(50);
-        margin-bottom: rem(20);
+      date {
+        font-style: italic;
+        margin-bottom: rem(10);
+        display: block;
+        color: $ccc;
+        .icon {
+          margin-right: rem(10);
+        }
       }
+
 
       &:hover {
         h3 {
@@ -115,6 +103,36 @@ body {
     }
   }
 }
+
+#customers-served {
+  background: $white;
+  padding: rem(150) 0;
+  text-align: center;
+
+  .message {
+    margin-top: rem(40);
+    h1:after { margin: rem(20) auto; }
+  }
+
+  #brand-partners {
+    .logos {
+      @include flex;
+      flex-wrap: wrap;
+      justify-content: center;
+
+      .logo {
+        width: 10%;
+        text-align: center;
+        opacity: 0.5;
+        img {
+          width: rem(100);
+        }
+      }
+    }
+  }
+}
+
+
 
 #map-container {
   background: $light;
@@ -128,7 +146,7 @@ body {
 
 // Counter Component
 // ===================================
-#counter {
+.counter-element {
   @include flex;
   justify-content: center;
 

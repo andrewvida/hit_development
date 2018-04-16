@@ -10,6 +10,7 @@ class DepartmentsController < ApplicationController
   # GET /departments/1
   # GET /departments/1.json
   def show
+    @posts = Post.where(department_id: params[:id])
   end
 
   # GET /departments/new

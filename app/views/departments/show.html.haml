@@ -1,7 +1,6 @@
-%p#notice= notice
-%p
-  %strong Department name:
-  = @department.department_name
-= link_to 'Edit', edit_department_path(@department)
-|
-\#{link_to 'Back', departments_path}
+.container
+  %h1= @department.department_name
+  -@posts.each do |post|
+    =link_to post_path(post) do ||
+      %h3=truncate(post.title, length: 50)
+      %p.lead=truncate(post.details, length: 200)

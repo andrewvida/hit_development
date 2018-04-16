@@ -1,55 +1,14 @@
-#welcome-container
-  .container
-    .welcome-message
-      %span Welcome to Hendrick IT
-      %span.highlight where we pride ourselves
-      %span on wire management.
+=render 'welcome'
+=render 'teammates'
+=render 'featured-stories'
 
-      .action
-        %button.btn.btn-link{type:'button'}
-          Our commitment to the Hendrick team
-          &rarr;
-
-#team-counter
-  #counter
-    .numbers
-      %span 9
-      %span.comma ,
-      %span 8
-      %span 7
-      %span 6
-
-  .container
-    .message
-      %h1.secondary Hendrick Teammates
-      %p.lead=Faker::Lorem.paragraph(2)
-
-#feature-container
-  .blocks
-    - 4.times do |index|
-      %article
-        %span.icon.fa.fa-asterisk
-        %h3.secondary=Faker::Lorem.sentence
-        %p.lead=Faker::Lorem.sentences(2)
-        %button.btn.btn-outline-primary{type: 'button'} Read more
-
-#car-counter
-  #counter
-    .numbers
-      %span 2
-      %span.comma ,
-      %span 7
-      %span 1
-      %span 2
-      %span.comma ,
-      %span 3
-      %span 7
-      %span 0
+#customers-served
+  =render 'counter', number:'124,439,123'
 
   .container
     .message
       %h1.secondary Customers Served in 2018
-      %p.lead=Faker::Lorem.paragraphs(1)
+      %p.lead=Faker::Lorem.paragraph(5)
 
     #brand-partners
       .logos
