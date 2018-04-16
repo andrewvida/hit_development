@@ -40,7 +40,7 @@ departments = [
   'Project Management']
 
 departments.each do |dept|
-  department = Department.create(department_name: dept)
+  department = Department.create(department_name: dept, mission:Faker::BackToTheFuture.quote)
   department.tag_names = [tags.sample, tags.sample, tags.sample]
   department.save
   puts department.department_name
@@ -58,7 +58,7 @@ end
 puts '50 Users created.'
 
 100.times do |index|
-  post = Post.create(title: Faker::TheITCrowd.quote, details: Faker::Lorem.paragraph(8), post_type: [0,1,2,3,4].sample, user: User.all.sample, department: Department.all.sample)
+  post = Post.create(title: Faker::Lorem.sentence(1), details: Faker::Lorem.paragraph(8), post_type: [0,1,2,3,4].sample, user: User.all.sample, department: Department.all.sample)
   post.tag_names = [tags.sample, tags.sample, tags.sample]
   post.save
   puts post.title

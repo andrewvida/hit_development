@@ -1,4 +1,6 @@
 class HomeController < ApplicationController
+  layout 'poster'
+
   def index
     @recent_posts = Post.all.take(4)
   end

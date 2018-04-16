@@ -1,5 +1,6 @@
-.container
+.container.p-5
   %h1= @department.department_name
+  %p.lead= @department.mission
   -@posts.each do |post|
     =link_to post_path(post) do ||
       %h3=truncate(post.title, length: 50)
