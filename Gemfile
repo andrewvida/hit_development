@@ -20,8 +20,8 @@ gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
-# Acts As Taggable On
-gem 'acts-as-taggable-on', '~> 4.0'
+gem 'webpacker'
+gem 'react-rails'
 
 # HAML
 gem 'haml'
