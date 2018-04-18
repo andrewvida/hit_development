@@ -5,17 +5,17 @@
         =render 'shared/logo', {color: 'brand'}
     .options-container
       %nav
-        %a.link{:href => "#"}
+        %a#tour-announcements.link{:href => "#"}
           Announcements
           %span.badge.badge-pill.badge-danger=new_announcement_count
 
-        %a#navbarDropdown.nav-link.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+        %a#tour-departments.nav-link.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
           Departments
-        .dropdown-menu{"aria-labelledby" => "navbarDropdown"}
+        .dropdown-menu{"aria-labelledby" => "tour-departments"}
           -get_departments.each do |dept|
             %a.dropdown-item{href: department_path(dept) }=dept.department_name
 
-    .search-container
+    #tour-search.search-container
       .tag-search-container
         =react_component('TagSearch', {taggings: all_tags})
 
@@ -24,5 +24,5 @@
         %a#tour-careers.btn.btn-outline-primary{href:'/careers.html'}
           %span.badge.badge-primary NEW
           Careers
-        %a.link{:href => "#"}
+        %a#tour-help.link{:href => "#"}
           Need help?

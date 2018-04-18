@@ -45,3 +45,5 @@ Types:
 - [react-tagsinput](https://github.com/olahol/react-tagsinput)
 - [react-autosuggest](https://github.com/moroshko/react-autosuggest)
 - [react-reveal](https://github.com/rnosov/react-reveal)
+- [bootstraptour](http://bootstraptour.com/)
+
