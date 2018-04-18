@@ -12,10 +12,10 @@ module ApplicationHelper
 
   def all_tags
     tags = Gutentag::Tag.all
-    result = []
-    tags.each do |tag|
-      result << {id: tag.id.to_s, text:tag.name}
-    end
-    result
+    tags
+  end
+
+  def new_announcement_count
+    announcements = Post.where(post_type: 1).count
   end
 end

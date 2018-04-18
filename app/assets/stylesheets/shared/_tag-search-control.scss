@@ -1,1 +1,86 @@
 @import "react-tagsinput/react-tagsinput.css";
+
+.app-tag-input {
+  @include border-radius;
+  display: flex;
+  border:1px solid $ccc;
+  background: $white;
+  overflow-x: hidden;
+
+  .btn-default {
+    background: $white;
+    color: $ccc;
+    border:none;
+    outline: none;
+
+    &:hover {
+      color: $blue;
+    }
+  }
+}
+
+.react-tagsinput {
+  padding: 0;
+  display: block;
+  width: 100%;
+  border:none;
+  padding: rem(5) rem(5) rem(0) rem(5);
+
+  > span {
+    display: flex;
+
+    .react-tagsinput-tag {
+      background: $blue;
+      color: $white;
+      border: none;
+      padding-right: rem(10);
+      padding-left: rem(10);
+      display: flex;
+
+      .react-tagsinput-remove {
+        margin-left: rem(10);
+        color: $halfwhite;
+
+        &:hover { color: $white; }
+      }
+    }
+  }
+
+
+  &.react-tagsinput--focused {
+    border:none;
+  }
+
+  .react-autosuggest__container {
+
+    input {
+      margin: 0;
+      min-width: rem(140);
+    }
+
+  }
+  .react-autosuggest__container.react-autosuggest__container--open {
+    .react-autosuggest__suggestions-container.react-autosuggest__suggestions-container--open {
+      position: absolute;
+      background: $white;
+      @include border-radius;
+      border:1px solid $ccc;
+
+      ul.react-autosuggest__suggestions-list {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        min-width: rem(300);
+
+        li.react-autosuggest__suggestion {
+          padding: rem(10);
+
+          &.react-autosuggest__suggestion--highlighted {
+            background: $light;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+}

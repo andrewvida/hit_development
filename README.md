@@ -37,8 +37,11 @@ Types:
 
 ## 3rd Party
 
-
 - [gutentag](https://github.com/pat/gutentag#installation)
 - [cancan](https://github.com/ryanb/cancan)
 - [faker](https://github.com/stympy/faker)
-
+- [webpacker](https://github.com/rails/webpacker)
+- [react-rails](https://github.com/reactjs/react-rails)
+- [react-tagsinput](https://github.com/olahol/react-tagsinput)
+- [react-autosuggest](https://github.com/moroshko/react-autosuggest)
+- [react-reveal](https://github.com/rnosov/react-reveal)
