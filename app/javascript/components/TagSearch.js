@@ -7,7 +7,8 @@ export default class TagSearch extends React.Component {
     super(props)
     this.state = {
       tags: [],
-      taggings: this.props.taggings
+      taggings: this.props.taggings,
+      isActive: false
     }
   }
 
@@ -17,6 +18,10 @@ export default class TagSearch extends React.Component {
 
   handleSearch () {
     window.location = "/home/search?terms=" + this.state.tags
+  }
+
+  handleActiveState () {
+    this.setState({isActive: !this.state.isActive})
   }
 
   render () {
@@ -55,7 +60,7 @@ export default class TagSearch extends React.Component {
     }
 
     return (
-      <div className="app-tag-input">
+      <div className={this.state.isActive ? "app-tag-input active" : "app-tag-input"} onClick={this.handleActiveState.bind(this)}>
         <TagsInput renderInput={autocompleteRenderInput} value={this.state.tags} onChange={this.handleChange.bind(this)} />
         <button className="btn btn-default" onClick={this.handleSearch.bind(this)}>
           <span className="fa fa-search"></span>

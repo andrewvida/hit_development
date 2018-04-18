@@ -5,6 +5,6 @@
         %date
           %span.icon.far.fa-calendar-alt
           =post.updated_at.strftime("%a %b %e, %y")
-        %h3.secondary=truncate(post.title, length: 40)
+        %h3.secondary=link_to truncate(post.title, length: 40), post_path(post)
         %p.lead=truncate(post.details, length: 100)
         %a.btn.btn-outline-primary{href: post_path(post)} Read more

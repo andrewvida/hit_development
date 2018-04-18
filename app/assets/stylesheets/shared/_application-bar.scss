@@ -17,8 +17,17 @@
       padding-left: rem(30);
 
       .app-tag-input {
-        min-width: rem(300);
-        max-width: rem(400);
+        transition:all 0.5s;
+        display: flex;
+
+        .react-tagsinput,
+        .btn {
+
+        }
+
+        &.active {
+
+        }
       }
     }
 
