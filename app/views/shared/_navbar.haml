@@ -35,8 +35,8 @@
 
       .row
         .col
-          %form#tour-search.form-inline{action:home_search_path}
-            %input.form-control{:placeholder => "Search", :type => "search", name:'terms'}
+          / %form#tour-search.form-inline{action:home_search_path}
+          = react_component("TagSearch", {taggings: all_tags})
 
         .col
           %a#tour-careers.btn.btn-outline-primary{href:'/careers.html'}
