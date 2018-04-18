@@ -1,4 +1,5 @@
 import React from "react"
+import Fade from 'react-reveal/Fade';
 
 class HelloWorld extends React.Component {
   constructor(props){
@@ -8,9 +9,13 @@ class HelloWorld extends React.Component {
 
   render () {
     return (
-      <h1>
-        Sup: {this.props.greeting}
-      </h1>
+      <div>
+      <Fade left>
+        <h1>
+          Sup: {this.props.greeting}
+        </h1>
+      </Fade>
+      </div>
     );
   }
 }
