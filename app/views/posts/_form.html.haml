@@ -10,17 +10,22 @@
   .field
     = form.label :title
     = form.text_field :title, id: :post_title
-  .field
-    = form.label :details
-    = form.text_area :details, id: :post_details
+
   .field
     = form.label :department_id
-    = form.text_field :department_id, id: :post_department_id
-  .field
-    = form.label :user_id
-    = form.text_field :user_id, id: :post_user_id
-  .field
+    =select_tag 'post[department_id]', options_from_collection_for_select(get_departments, 'id', 'department_name')
+
     = form.label :post_type
-    = form.number_field :post_type, id: :post_post_type
+    .post-type-container
+      -1.upto(4) do |index|
+        .post-type
+          %label{for:"pt-#{index}"}
+            %input{name:'post[type]', value: index, type:'radio', id:"pt-#{index}"}
+            %img{src:"/admin-images/post-type-#{index}.png"}
+  .field.details
+    =react_component('Wysiwyg', {details: post.details})
+    %input.wz-output{type:'hidden', name: 'post[details]'}
+
   .actions
+    = form.hidden_field :user_id, id: :post_user_id
     = form.submit

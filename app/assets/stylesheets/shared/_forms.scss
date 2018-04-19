@@ -1,0 +1,38 @@
+@import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
+
+.wysiwyg-editor {
+  min-height: rem(300);
+  border:1px solid $ccc;
+
+  .rdw-editor-toolbar {
+    border: none;
+    background: $light;
+    display: flex;
+    align-items:stretch;
+
+    .rdw-option-wrapper,
+    .rdw-dropdown-wrapper {
+      min-height: rem(40);
+      width: rem(60);
+      padding: rem(10);
+      background: $white;
+    }
+
+    .rdw-dropdown-optionwrapper {
+      min-width: rem(50);
+    }
+  }
+
+  .demo-editor {
+    padding: 0 rem(20);
+  }
+
+  .rdw-link-modal {
+    min-height: rem(250);
+    height: auto;
+  }
+}
+
+.post-type-container {
+  display: flex;
+}

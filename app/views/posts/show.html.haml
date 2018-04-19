@@ -18,7 +18,7 @@
     Post type:
     = @post.post_type
 
-  %p.lead= @post.details
+  %p.lead= @post.details.html_safe
 
   %div
     =link_to 'Edit', edit_post_path(@post)

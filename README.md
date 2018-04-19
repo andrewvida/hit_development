@@ -46,4 +46,5 @@ Types:
 - [react-autosuggest](https://github.com/moroshko/react-autosuggest)
 - [react-reveal](https://github.com/rnosov/react-reveal)
 - [bootstraptour](http://bootstraptour.com/)
+- [react-draft-wysiwyg](https://github.com/jpuri/react-draft-wysiwyg)
 
