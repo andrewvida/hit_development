@@ -1,0 +1,14 @@
+#sidebar
+  .banding
+    =render 'shared/logo', {color: 'brand'}
+
+  .tag-cluster
+    %label Department tags
+    -department_tags.each do |tag|
+      %a{href:home_search_path(terms:tag.name)}
+        %span.badge.badge-primary{role:'tag'}=tag.name
+
+  .links
+    %label Departments
+    -get_departments.each do |dept|
+      %a{href: department_path(dept)}=dept.department_name

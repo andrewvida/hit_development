@@ -2,9 +2,11 @@ Rails.application.routes.draw do
   get 'home/index'
   get 'home/search', to: 'home#search'
 
-  resources :posts
+
   resources :users
-  resources :departments
+  resources :departments do
+    resources :posts
+  end
 
 
   root to: 'home#index'

@@ -18,4 +18,9 @@ module ApplicationHelper
   def new_announcement_count
     announcements = Post.where(post_type: 1).count
   end
+
+  def tags_by_department
+    dept = Department.find(params[:id])
+    dept.tags
+  end
 end

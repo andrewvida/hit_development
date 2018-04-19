@@ -39,24 +39,7 @@
   %body
     #application-container
       .app-layout
-        #sidebar
-          .banding
-            =render 'shared/logo', {color: 'brand'}
-          .search
-            %label Search
-            %form{action:home_search_path}
-              %input.form-control{:placeholder => "computer, support, helpdesk", :type => "search", name:'terms'}
-
-          .tag-cluster
-            %label Most popular tags
-            -get_popular_tags.each do |tag|
-              %a{href:home_search_path(terms:tag.name)}
-                %span.badge.badge-primary{role:'tag'}=tag.name
-
-          .links
-            %label Departments
-            -get_departments.each do |dept|
-              %a{href: department_path(dept)}=dept.department_name
+        =render 'shared/sidebar', {department_tags: tags_by_department}
 
         #content-area
           =yield
