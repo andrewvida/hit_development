@@ -20,7 +20,12 @@ module ApplicationHelper
   end
 
   def tags_by_department
-    dept = Department.find(params[:id])
-    dept.tags
+    tags = []
+    if params[:id]
+      tags = Department.find(params[:id]).tags
+    else
+      tags
+    end
+
   end
 end

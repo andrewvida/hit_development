@@ -4,6 +4,6 @@
   %h1= @department.department_name
   %p.lead= @department.mission
   -@posts.each do |post|
-    =link_to department_post_path(post) do ||
+    =link_to post_path(post) do ||
       %h3=truncate(post.title, length: 50)
       %p.lead=truncate(post.details, length: 200)

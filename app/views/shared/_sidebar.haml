@@ -1,12 +1,14 @@
 #sidebar
   .banding
-    =render 'shared/logo', {color: 'brand'}
+    %a{href:root_path}
+      =render 'shared/logo', {color: 'brand'}
 
-  .tag-cluster
-    %label Department tags
-    -department_tags.each do |tag|
-      %a{href:home_search_path(terms:tag.name)}
-        %span.badge.badge-primary{role:'tag'}=tag.name
+  -unless department_tags.empty?
+    .tag-cluster
+      %label Department tags
+      -department_tags.each do |tag|
+        %a{href:home_search_path(terms:tag.name)}
+          %span.badge.badge-primary{role:'tag'}=tag.name
 
   .links
     %label Departments
