@@ -5,6 +5,7 @@
 @import "shared/tag-search-control";
 @import "shared/footer";
 @import "shared/homepage";
+@import "shared/searchpage";
 
 body {
   background: $dark;
@@ -26,13 +27,13 @@ body {
     }
 
     #sidebar {
-      width: 20%;
+      width: 15%;
       background: $white;
     }
 
     #content-area {
       flex:1 1 auto;
-      background: $light;
+      background: $white;
     }
   }
 }

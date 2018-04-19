@@ -1,0 +1,18 @@
+#top-search-container {
+  margin: rem(20) 0;
+
+  .app-tag-input {
+    height: rem(50);
+    border: none;
+    border-radius: 0;
+    border-bottom: 5px solid $blue;
+  }
+}
+
+#search-results-container {
+  background: $white;
+  padding: rem(40) 0;
+  section {
+    margin-bottom: rem(40);
+  }
+}

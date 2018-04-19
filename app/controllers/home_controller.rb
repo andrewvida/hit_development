@@ -10,7 +10,7 @@ class HomeController < ApplicationController
     users = User.tagged_with(:names => @search_terms, :match => :any)
     depts = Department.tagged_with(:names => @search_terms, :match => :any)
     posts = Post.tagged_with(:names => @search_terms, :match => :any)
-
     @results = { users: users, depts: depts, posts: posts }
   end
+
 end

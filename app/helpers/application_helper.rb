@@ -21,11 +21,14 @@ module ApplicationHelper
 
   def tags_by_department
     tags = []
-    if params[:id]
+    if params[:controller] === 'users' && !params[:id].nil?
+      tags = User.find(params[:id]).tags
+    elsif params[:controller] === 'departments' && !params[:id].nil?
       tags = Department.find(params[:id]).tags
+    elsif params[:controller] === 'posts' && !params[:id].nil?
+      tags = Post.find(params[:id]).tags
     else
-      tags
+      tags = []
     end
-
   end
 end

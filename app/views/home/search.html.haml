@@ -1,32 +1,37 @@
-=render 'shared/tag-search-control', action_path: '/home/search'
+=render 'shared/navbar'
 
-.alert.alert-light
-  %label Search terms
-  %p=@search_terms.inspect
+#top-search-container
+  .container
+    %label Search Terms
+    =react_component('TagSearch', {taggings: all_tags, terms: @search_terms})
 
-.panel
-  %h2="Department Results - #{@results[:depts].count}"
-  %ul
-    -@results[:depts].each do |result|
-      %li
-        =link_to department_path(result) do
-          %b=result.department_name
-          %i=result.tag_names
+#search-results-container
+  %section.departments.container
+    %h4.secondary="Department Results - #{@results[:depts].count}"
 
-.panel
-  %h2="User Results - #{@results[:users].count}"
-  %ul
-    -@results[:users].each do |result|
-      %li
-        =link_to user_path(result) do
-          %b=result.name
-          %i=result.tag_names
+    %ul.list-group
+      -@results[:depts].each do |result|
+        %li.list-group-item
+          =link_to department_path(result) do
+            %b=result.department_name
+            %i=result.tag_names
 
-.panel
-  %h2="Post Results - #{@results[:posts].count}"
-  %ul
-    -@results[:posts].each do |result|
-      %li
-        =link_to post_path(result) do
-          %b=truncate(result.title, length: 50)
-          %i=result.tag_names
+  %section.users.container
+    %h4.secondary="User Results - #{@results[:users].count}"
+
+    %ul.list-group
+      -@results[:users].each do |result|
+        %li.list-group-item
+          =link_to user_path(result) do
+            %b=result.name
+            %i=result.tag_names
+
+  %section.posts.container
+    %h4.secondary="Post Results - #{@results[:posts].count}"
+
+    %ul.list-group
+      -@results[:posts].each do |result|
+        %li.list-group-item
+          =link_to post_path(result) do
+            %b=truncate(result.title, length: 50)
+            %i=result.tag_names

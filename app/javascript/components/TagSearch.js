@@ -6,7 +6,7 @@ export default class TagSearch extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      tags: [],
+      tags: this.props.terms === undefined ? [] : this.props.terms,
       taggings: this.props.taggings,
       isActive: false
     }
@@ -26,6 +26,7 @@ export default class TagSearch extends React.Component {
 
   render () {
     var self = this;
+
     function autocompleteRenderInput ({addTag, ...props}) {
       const handleOnChange = (e, {newValue, method}) => {
         if (method === 'enter') {
@@ -43,6 +44,7 @@ export default class TagSearch extends React.Component {
       })
 
       return (
+
         <Autosuggest
           ref={props.ref}
           suggestions={suggestions}

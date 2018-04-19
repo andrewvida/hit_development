@@ -1,9 +1,13 @@
-#main-dept-view-search
-  =react_component('TagSearch', {taggings: all_tags})
-.container.p-5
+.container
   %h1= @department.department_name
   %p.lead= @department.mission
   -@posts.each do |post|
-    =link_to post_path(post) do ||
-      %h3=truncate(post.title, length: 50)
-      %p.lead=truncate(post.details, length: 200)
+
+    .card.mb-2
+      .card-body
+        =link_to post_path(post) do
+          %h5.secondary=truncate(post.title, length: 50)
+        %b=post.updated_at.strftime("%a %b %e, %y")
+        %p.card-text
+          =truncate(post.details, length: 200)
+          %a{href: post_path(post)} more

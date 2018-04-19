@@ -1,19 +1,26 @@
-%p#notice= notice
-%p
-  %strong Title:
-  = @post.title
-%p
-  %strong Details:
-  = @post.details
-%p
-  %strong Department:
-  = @post.department
-%p
-  %strong User:
-  = @post.user
-%p
-  %strong Post type:
-  = @post.post_type
-= link_to 'Edit', edit_post_path(@post)
-|
-\#{link_to 'Back', posts_path}
+-unless notice.nil?
+  .alert.alert-info
+    %span= notice
+
+.container.p-4
+  %h1= @post.title
+
+  -@post.tag_names.each do |tag|
+    %span.badge.badge-primary=tag
+
+  %p
+    Posted by:
+    = @post.user.name
+    for
+    = @post.department.department_name
+
+  %p
+    Post type:
+    = @post.post_type
+
+  %p.lead= @post.details
+
+  %div
+    =link_to 'Edit', edit_post_path(@post)
+    |
+    =link_to 'Back', department_path(@post.department.id)
