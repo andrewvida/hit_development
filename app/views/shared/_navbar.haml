@@ -6,18 +6,26 @@
     .options-container
       %nav
         %a#tour-announcements.link{:href => "#"}
-          Announcements
+          Our Announcements
           %span.badge.badge-pill.badge-danger=new_announcement_count
 
-        %a#tour-departments.nav-link.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
-          Departments
-        .dropdown-menu{"aria-labelledby" => "tour-departments"}
-          -get_departments.each do |dept|
-            %a.dropdown-item{href: department_path(dept) }=dept.department_name
+        #option-set-1
+          %a#tour-departments.nav-link.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button", "data-target"=>"option-set-1"}
+            The Department
+          .dropdown-menu.nav-departments{"aria-labelledby" => "tour-departments"}
+            -get_departments.each do |dept|
+              %a.dropdown-item{href: department_path(dept) }=dept.department_name
 
-    #tour-search.search-container
-      .tag-search-container
-        =react_component('TagSearch', {taggings: all_tags})
+        %a#tour-new-post.btn.btn-success{href:new_post_path}
+          New Post
+
+        #option-set-2
+          %a#tour-actions.btn.btn-outline-secondary.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button", "data-target"=>"option-set-2"}
+            More actions
+          .dropdown-menu.nav-actions{"aria-labelledby" => "tour-actions"}
+            %a.dropdown-item{href: new_user_path } Add a Teammate
+            %a.dropdown-item{href: new_department_path } Add a Department
+            %a.dropdown-item{href: '#' } Manage my Posts
 
     .options-container
       %nav

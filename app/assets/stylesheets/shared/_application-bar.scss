@@ -38,13 +38,16 @@
         display: flex;
         align-items: center;
         justify-content: flex-end;
-        > a {
+
+        > a,
+        > #option-set-1,
+        > #option-set-2 {
           flex: 0 0 auto;
           margin: 0 rem(10);
         }
 
         a {
-          font-size: rem(14); color: $dark;
+          font-size: rem(14);
           outline: none;
           text-decoration: none;
         }

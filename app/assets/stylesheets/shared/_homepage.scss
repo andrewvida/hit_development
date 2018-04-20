@@ -1,24 +1,77 @@
 #welcome-container {
-  background: $brand url(/web-images/welcome-image.jpg) no-repeat;
+  background: $light url(/web-images/welcome-image.jpg);
   background-position: top center;
   background-size: 100%;
   min-height: rem(600);
   border-bottom: 1px solid $light;
 
   .welcome-message {
-    position: relative;
-    top: rem(100);
+    // position: relative;
+    // top: rem(100);
+    text-align: left;
+    padding: rem(40) 0;
+    line-height: rem(50);
+    // background: rgba($white, 0.9);
 
     span {
       font-family: 'Titillium Web';
-      display: block;
       font-weight: 300;
       color: $dark;
       font-size: rem(40);
+      display: block;
 
       &.highlight {
         font-weight: 700;
         color: $gold;
+        font-size: rem(50);
+      }
+    }
+  }
+
+  .search-container {
+    @include border-radius;
+    width: 100%;
+    padding: rem(20);
+    padding-left: 0;
+    background: rgba($white, 0.6);
+
+
+    .app-tag-input,
+    .react-autosuggest__container input,
+    .react-tagsinput-tag {
+      font-size: rem(18);
+    }
+
+    .react-autosuggest__container input {
+      min-width: rem(280);
+    }
+
+    .react-autosuggest__container,
+    .react-tagsinput-tag {
+      margin-top: rem(9);
+    }
+
+    .react-tagsinput {
+      margin-left: rem(10);
+    }
+
+
+
+    .app-tag-input {
+      height: rem(65);
+      border: none;
+      @include shadow;
+
+      .btn.btn-default {
+        @include border-radius(0 $radius $radius 0);
+        background: $blue;
+        color: $white;
+
+        &:after {
+          content: 'Search';
+          display:inline-block;
+          margin: 0 rem(10);
+        }
       }
     }
   }
