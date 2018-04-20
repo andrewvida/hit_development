@@ -19,6 +19,10 @@ module ApplicationHelper
     announcements = Post.where(post_type: 1).count
   end
 
+  def current_user
+    User.all.sample
+  end
+
   def tags_by_department
     tags = []
     if params[:controller] === 'users' && !params[:id].nil?

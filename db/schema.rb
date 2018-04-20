@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180420194156) do
+ActiveRecord::Schema.define(version: 20180420200344) do
 
   create_table "departments", force: :cascade do |t|
     t.string "department_name"
@@ -59,6 +59,7 @@ ActiveRecord::Schema.define(version: 20180420194156) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "bio"
+    t.string "photo_url", default: "https://robohash.org/hendrick"
     t.index ["department_id"], name: "index_users_on_department_id"
   end
 

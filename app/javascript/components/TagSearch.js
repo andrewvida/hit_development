@@ -24,6 +24,9 @@ export default class TagSearch extends React.Component {
     this.setState({isActive: !this.state.isActive})
   }
 
+  // TODO - Handle props for the button action
+  // this.props.hasSearchButton
+
   render () {
     var self = this;
 

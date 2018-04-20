@@ -2,7 +2,7 @@
 
   -unless department_tags.empty?
     .tag-cluster
-      %label Department tags
+      %label Tags
       .tags-container
         -department_tags.each do |tag|
           %a{href:home_search_path(terms:tag.name)}
@@ -30,9 +30,11 @@
 
   .links
     %label Resources
-    %a{href: '#'} FAQs
     %a{href: '#'}
       Jobs
       %span.badge.badge-warning.ml-1 New
+    %a{href: '#'} FAQs
+    %a{href: '#'} How-Tos
     %a{href: '#'} Forms
     %a{href: '#'} Leadership
+    %a{href: users_path} Teammates

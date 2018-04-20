@@ -34,3 +34,8 @@
           Careers
         %a#tour-help.link{:href => "#"}
           Need help?
+
+        %a#tour-user.link{:href => "#"}
+          %a{href: user_path(current_user), class: "avatar bg-#{['red', 'green', 'blue', 'purple', 'yellow'].sample}"}
+            %img{src: current_user.photo_url}
+

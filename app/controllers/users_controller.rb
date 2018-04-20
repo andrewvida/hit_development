@@ -68,6 +68,7 @@ class UsersController < ApplicationController
         name: user_params[:name],
         email: user_params[:email],
         bio: user_params[:bio],
+        photo_url: user_params[:photo_url],
         title: user_params[:title],
         department_id: user_params[:department_id],
         tag_names: user_params[:tag_names].split(',') || '' }
@@ -80,6 +81,6 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:name, :email, :title, :department_id, :tag_names, :bio)
+      params.require(:user).permit(:name, :email, :title, :department_id, :tag_names, :bio, :photo_url)
     end
 end
