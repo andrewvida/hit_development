@@ -63,7 +63,7 @@ export default class TagSearch extends React.Component {
 
     return (
       <div className={this.state.isActive ? "app-tag-input active" : "app-tag-input"} onClick={this.handleActiveState.bind(this)}>
-        <TagsInput renderInput={autocompleteRenderInput} value={this.state.tags} onChange={this.handleChange.bind(this)} />
+        <TagsInput maxTags="4" renderInput={autocompleteRenderInput} value={this.state.tags} onChange={this.handleChange.bind(this)} />
         <button className="btn btn-default" onClick={this.handleSearch.bind(this)}>
           <span className="fa fa-search"></span>
         </button>

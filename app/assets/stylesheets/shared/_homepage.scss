@@ -42,10 +42,6 @@
       font-size: rem(18);
     }
 
-    .react-autosuggest__container input {
-      min-width: rem(280);
-    }
-
     .react-autosuggest__container,
     .react-tagsinput-tag {
       margin-top: rem(9);
@@ -71,6 +67,10 @@
           content: 'Search';
           display:inline-block;
           margin: 0 rem(10);
+        }
+
+        &:hover {
+          background: $green;
         }
       }
     }
