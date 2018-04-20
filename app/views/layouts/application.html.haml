@@ -41,6 +41,7 @@
       .app-layout
         =render 'shared/sidebar', {department_tags: tags_by_department}
         #content-area
+          =render 'shared/navbar'
           #content-wrapper
             =yield
     =render 'shared/footer'

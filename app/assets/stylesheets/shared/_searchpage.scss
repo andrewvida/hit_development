@@ -1,11 +1,43 @@
 #top-search-container {
-  margin: rem(20) 0;
+  padding: rem(40) 0;
+  background: $light;
+
+  .app-tag-input,
+  .react-autosuggest__container input,
+  .react-tagsinput-tag {
+    font-size: rem(18);
+  }
+
+  .react-autosuggest__container,
+  .react-tagsinput-tag {
+    margin-top: rem(9);
+  }
+
+  .react-tagsinput {
+    margin-left: rem(10);
+  }
 
   .app-tag-input {
-    height: rem(50);
+    height: rem(65);
+    background: $white;
     border: none;
-    border-radius: 0;
-    border-bottom: 5px solid $blue;
+    @include shadow;
+
+    .btn.btn-default {
+      @include border-radius(0 $radius $radius 0);
+      background: $blue;
+      color: $white;
+
+      &:after {
+        content: 'Search';
+        display:inline-block;
+        margin: 0 rem(10);
+      }
+
+      &:hover {
+        background: $green;
+      }
+    }
   }
 }
 
