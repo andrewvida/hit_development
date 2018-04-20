@@ -1,0 +1,16 @@
+#department-intro {
+  background: $light;
+  padding: rem(40);
+}
+
+#department-post-list {
+  margin: rem(20);
+
+  .post-list-filter-container {
+    margin: rem(40) 0;
+  }
+}
+
+#department-form-view {
+  padding: rem(40);
+}

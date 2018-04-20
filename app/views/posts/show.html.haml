@@ -2,25 +2,25 @@
   .alert.alert-info
     %span= notice
 
+#post-detail-view
+  %h1= @post.title
 
-%h1= @post.title
+  -@post.tag_names.each do |tag|
+    %span.badge.badge-primary=tag
 
--@post.tag_names.each do |tag|
-  %span.badge.badge-primary=tag
+  %p
+    Posted by:
+    = @post.user.name
+    for
+    = @post.department.department_name
 
-%p
-  Posted by:
-  = @post.user.name
-  for
-  = @post.department.department_name
+  %p
+    Post type:
+    = @post.post_type
 
-%p
-  Post type:
-  = @post.post_type
+  %p.lead= @post.details.html_safe
 
-%p.lead= @post.details.html_safe
-
-%div
-  =link_to 'Edit', edit_post_path(@post)
-  |
-  =link_to 'Back', department_path(@post.department.id)
+  %div
+    =link_to 'Edit', edit_post_path(@post)
+    |
+    =link_to 'Back', department_path(@post.department.id)

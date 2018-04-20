@@ -1,16 +1,17 @@
 %p#notice= notice
-%p
-  %strong Name:
-  = @user.name
-%p
-  %strong Email:
-  = @user.email
-%p
-  %strong Title:
-  = @user.title
-%p
-  %strong Department:
-  = @user.department
-= link_to 'Edit', edit_user_path(@user)
-|
-\#{link_to 'Back', users_path}
+#user-detail-view
+  %p
+    %strong Name:
+    = @user.name
+  %p
+    %strong Email:
+    = @user.email
+  %p
+    %strong Title:
+    = @user.title
+  %p
+    %strong Department:
+    = @user.department
+  = link_to 'Edit', edit_user_path(@user)
+  |
+  \#{link_to 'Back', users_path}

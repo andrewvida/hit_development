@@ -70,7 +70,7 @@ class PostsController < ApplicationController
         details: post_params[:details],
         user_id: post_params[:user_id],
         department_id: post_params[:department_id],
-        tag_names: post_params[:tag_names].split(',') }
+        tag_names: post_params[:tag_names].split(',') || '' }
     end
 
     def set_post

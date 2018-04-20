@@ -8,8 +8,6 @@
         - post.errors.full_messages.each do |message|
           %li= message
 
-  %input{type:'text', name: 'post[user_id]', value: post.user_id || 1}
-
   .row
     .col-9
       .form-group
@@ -42,4 +40,5 @@
 
   .actions
     %input.wz-output{type:'hidden', name: 'post[details]'}
+    %input{type:'hidden', name: 'post[user_id]', value: post.user_id || 1}
     = form.submit 'Save', class:'btn btn-success btn-lg'

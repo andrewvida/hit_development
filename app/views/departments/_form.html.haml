@@ -7,8 +7,18 @@
       %ul
         - department.errors.full_messages.each do |message|
           %li= message
-  .field
+
+  .form-group
     = form.label :department_name
-    = form.text_field :department_name, id: :department_department_name
+    = form.text_field :department_name, id: :department_department_name, class:'form-control form-control-lg'
+
+  .form-group
+    = form.label :mission
+    = form.text_field :mission, id: :department_mission, class:'form-control form-control-lg'
+
+  .form-group.tags
+    %label Tags
+    =react_component('TagSearch', {taggings: all_tags, terms: department.tag_names, binding:'department[tag_names]'})
+
   .actions
-    = form.submit
+    = form.submit 'Save', class:'btn btn-success btn-lg'

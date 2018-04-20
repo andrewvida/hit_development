@@ -11,7 +11,7 @@
 
         #option-set-1
           %a#tour-departments.nav-link.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button", "data-target"=>"option-set-1"}
-            The Department
+            IT Departments
           .dropdown-menu.nav-departments{"aria-labelledby" => "tour-departments"}
             -get_departments.each do |dept|
               %a.dropdown-item{href: department_path(dept) }=dept.department_name

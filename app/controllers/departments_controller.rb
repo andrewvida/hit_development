@@ -25,7 +25,7 @@ class DepartmentsController < ApplicationController
   # POST /departments
   # POST /departments.json
   def create
-    @department = Department.new(department_params)
+    @department = Department.new(set_department_object)
 
     respond_to do |format|
       if @department.save
@@ -42,7 +42,7 @@ class DepartmentsController < ApplicationController
   # PATCH/PUT /departments/1.json
   def update
     respond_to do |format|
-      if @department.update(department_params)
+      if @department.update(set_department_object)
         format.html { redirect_to @department, notice: 'Department was successfully updated.' }
         format.json { render :show, status: :ok, location: @department }
       else
@@ -64,12 +64,19 @@ class DepartmentsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
+    def set_department_object
+      object = {
+        department_name: department_params[:department_name],
+        mission: department_params[:mission],
+        tag_names: department_params[:tag_names].split(',') || ''}
+    end
+
     def set_department
       @department = Department.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def department_params
-      params.require(:department).permit(:department_name)
+      params.require(:department).permit(:department_name, :mission, :tag_names)
     end
 end

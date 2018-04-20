@@ -44,10 +44,11 @@
   .links {
 
     &.actions {
-      @include border-radius;
       border:1px solid rgba($white, 0.1);
       padding: rem(10) rem(10);
       background: rgba($white, 0.1);
+      border-left: none;
+      border-right: none;
 
       a:hover > svg { color: $blue; }
     }

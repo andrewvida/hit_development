@@ -1,13 +1,30 @@
-.container
+#department-intro
   %h1= @department.department_name
-  %p.lead= @department.mission
-  -@posts.each do |post|
+  %p.lead
+    = @department.mission
+    %a{href: edit_department_path(@department)} Edit department
+#department-post-list
+  .post-list-filter-container
+    %ul.nav.nav-pills
+      %li.nav-item
+        %a.nav-link.active{:href => "#"} All Posts
+      %li.nav-item
+        %a.nav-link{:href => "#"} Announcements
+      %li.nav-item
+        %a.nav-link{:href => "#"} FAQs
+      %li.nav-item
+        %a.nav-link{:href => "#"} How-Tos
+      %li.nav-item
+        %a.nav-link{:href => "#"} Forms
+      %li.nav-item
+        %a.nav-link{:href => "#"} Leadership
 
-    .card.mb-2
-      .card-body
+  %ul.list-group-flush.list-group
+    -@posts.each do |post|
+      %li.list-group-item
         =link_to post_path(post) do
-          %h5.secondary=truncate(post.title, length: 50)
+          %b=truncate(post.title, length: 50)
         %b=post.updated_at.strftime("%a %b %e, %y")
-        %p.card-text
+        %p
           =truncate(post.details, length: 200)
           %a{href: post_path(post)} more

@@ -1,5 +1,5 @@
-%h1 Editing User
-= render 'form', user: @user
-= link_to 'Show', @user
-|
-\#{link_to 'Back', users_path}
+#user-form-view
+  %h1 Editing User
+  = render 'form', user: @user
+  = link_to 'Show', @user
+  = link_to 'Back', users_path

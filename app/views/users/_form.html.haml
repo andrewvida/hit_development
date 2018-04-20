@@ -7,17 +7,28 @@
       %ul
         - user.errors.full_messages.each do |message|
           %li= message
-  .field
-    = form.label :name
-    = form.text_field :name, id: :user_name
-  .field
-    = form.label :email
-    = form.text_field :email, id: :user_email
-  .field
+
+  .row
+    .col-9
+      .form-group
+        = form.label :name
+        = form.text_field :name, id: :user_name, class:'form-control form-control-lg'
+    .col-3
+      .form-group
+        = form.label :department_id, 'Choose a department'
+        =select_tag 'user[department_id]', options_from_collection_for_select(get_departments, 'id', 'department_name'), { :class => 'form-control form-control-lg'}
+
+  .form-group
     = form.label :title
-    = form.text_field :title, id: :user_title
-  .field
-    = form.label :department_id
-    = form.text_field :department_id, id: :user_department_id
+    = form.text_field :title, id: :user_title, class:'form-control form-control-lg'
+
+  .form-group
+    = form.label :email
+    = form.text_field :email, id: :user_email, class:'form-control form-control-lg'
+
+  .form-group.tags
+    %label Tags
+    =react_component('TagSearch', {taggings: all_tags, terms: user.tag_names, binding:'user[tag_names]'})
+
   .actions
-    = form.submit
+    = form.submit 'Save', class:'btn btn-success btn-lg'
