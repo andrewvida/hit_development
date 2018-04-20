@@ -26,9 +26,16 @@
     = form.label :email
     = form.text_field :email, id: :user_email, class:'form-control form-control-lg'
 
+  .form-group.field.details
+    =user.bio
+    = form.label :bio
+    =react_component('Wysiwyg', {details: user.bio || ''})
+
+
   .form-group.tags
     %label Tags
     =react_component('TagSearch', {taggings: all_tags, terms: user.tag_names, binding:'user[tag_names]'})
 
   .actions
+    %input.wz-output{type:'hidden', name: 'user[bio]'}
     = form.submit 'Save', class:'btn btn-success btn-lg'

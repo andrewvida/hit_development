@@ -24,7 +24,7 @@ class UsersController < ApplicationController
   # POST /users
   # POST /users.json
   def create
-    @user = User.new(user_params)
+    @user = User.new(set_user_object)
 
     respond_to do |format|
       if @user.save
@@ -41,7 +41,7 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1.json
   def update
     respond_to do |format|
-      if @user.update(user_params)
+      if @user.update(set_user_object)
         format.html { redirect_to @user, notice: 'User was successfully updated.' }
         format.json { render :show, status: :ok, location: @user }
       else
@@ -62,6 +62,17 @@ class UsersController < ApplicationController
   end
 
   private
+
+    def set_user_object
+      object = {
+        name: user_params[:name],
+        email: user_params[:email],
+        bio: user_params[:bio],
+        title: user_params[:title],
+        department_id: user_params[:department_id],
+        tag_names: user_params[:tag_names].split(',') || '' }
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_user
       @user = User.find(params[:id])
@@ -69,6 +80,6 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:name, :email, :title, :department_id)
+      params.require(:user).permit(:name, :email, :title, :department_id, :tag_names, :bio)
     end
 end

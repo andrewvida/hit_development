@@ -9,6 +9,11 @@
   %p
     %strong Title:
     = @user.title
+
+  = @user.bio.html_safe
+
+  = @user.tag_names
+
   %p
     %strong Department:
     = @user.department
