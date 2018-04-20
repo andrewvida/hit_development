@@ -67,6 +67,7 @@ export default class TagSearch extends React.Component {
         <button className="btn btn-default" onClick={this.handleSearch.bind(this)}>
           <span className="fa fa-search"></span>
         </button>
+        <input type="hidden" name={self.props.binding ? self.props.binding : ''} value={self.state.tags} onChange={this.handleChange.bind(this)}/>
       </div>
       )
   }

@@ -40,9 +40,9 @@
     #application-container
       .app-layout
         =render 'shared/sidebar', {department_tags: tags_by_department}
-
         #content-area
-          =yield
+          #content-wrapper
+            =yield
     =render 'shared/footer'
 
     / jQuery

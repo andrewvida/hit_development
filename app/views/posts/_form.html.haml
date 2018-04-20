@@ -7,25 +7,39 @@
       %ul
         - post.errors.full_messages.each do |message|
           %li= message
-  .field
-    = form.label :title
-    = form.text_field :title, id: :post_title
 
-  .field
-    = form.label :department_id
-    =select_tag 'post[department_id]', options_from_collection_for_select(get_departments, 'id', 'department_name')
+  %input{type:'text', name: 'post[user_id]', value: post.user_id || 1}
 
+  .row
+    .col-9
+      .form-group
+        = form.label :title
+        = form.text_field :title, id: :post_title, class:'form-control form-control-lg'
+    .col-3
+      .form-group
+        = form.label :department_id, 'Choose a department'
+        =select_tag 'post[department_id]', options_from_collection_for_select(get_departments, 'id', 'department_name'), { :class => 'form-control form-control-lg'}
+
+  .form-group
     = form.label :post_type
     .post-type-container
       -1.upto(4) do |index|
         .post-type
           %label{for:"pt-#{index}"}
-            %input{name:'post[type]', value: index, type:'radio', id:"pt-#{index}"}
             %img{src:"/admin-images/post-type-#{index}.png"}
-  .field.details
-    =react_component('Wysiwyg', {details: post.details})
-    %input.wz-output{type:'hidden', name: 'post[details]'}
+            .description
+              %p This message will explain what this post is.
+            %input.form-control{name:'post[post_type]', value: index, type:'radio', id:"pt-#{index}"}
+
+
+  .form-group.field.details
+    = form.label :details
+    =react_component('Wysiwyg', {details: post.details || ''})
+
+  .form-group.tags
+    %label Tags
+    =react_component('TagSearch', {taggings: all_tags, terms: post.tag_names, binding:'post[tag_names]'})
 
   .actions
-    = form.hidden_field :user_id, id: :post_user_id
-    = form.submit
+    %input.wz-output{type:'hidden', name: 'post[details]'}
+    = form.submit 'Save', class:'btn btn-success btn-lg'

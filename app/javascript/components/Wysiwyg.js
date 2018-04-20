@@ -24,8 +24,6 @@ export default class Wysiwyg extends React.Component {
     this.setState({
       editorState
     });
-
-
   };
 
   render() {

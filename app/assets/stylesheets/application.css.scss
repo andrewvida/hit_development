@@ -4,67 +4,8 @@
 @import "shared/application-bar";
 @import "shared/tag-search-control";
 @import "shared/forms";
+@import "shared/sidebar";
 @import "shared/footer";
 @import "shared/homepage";
 @import "shared/searchpage";
-
-body {
-  background: $dark;
-
-  #application-container {
-    background: $white;
-  }
-}
-
-// Application Layout
-#application-container {
-  .app-layout {
-    display: flex;
-    align-items: stretch;
-
-    #sidebar,
-    #content-area {
-      flex: 0 0 auto;
-    }
-
-    #sidebar {
-      width: 15%;
-      background: $white;
-    }
-
-    #content-area {
-      flex:1 1 auto;
-      background: $white;
-    }
-  }
-}
-
-#sidebar {
-  border-right:1px solid $ccc;
-
-  .banding,
-  .tag-cluster,
-  .links,
-  .search {
-    padding: rem(20);
-
-    label {
-      display: block;
-    }
-  }
-
-  .banding {
-    text-align: center;
-    border-bottom:1px solid $light;
-  }
-
-  .search {
-    form input { width: 100%; }
-  }
-
-  .tag-cluster {}
-
-  .links {
-    a { display: block; }
-  }
-}
+@import "shared/layout";

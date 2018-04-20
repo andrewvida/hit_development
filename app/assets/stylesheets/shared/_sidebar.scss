@@ -1,0 +1,29 @@
+#sidebar {
+  border-right:1px solid $ccc;
+
+  .banding,
+  .tag-cluster,
+  .links,
+  .search {
+    padding: rem(20);
+
+    label {
+      display: block;
+    }
+  }
+
+  .banding {
+    text-align: center;
+    border-bottom:1px solid $light;
+  }
+
+  .search {
+    form input { width: 100%; }
+  }
+
+  .tag-cluster {}
+
+  .links {
+    a { display: block; }
+  }
+}

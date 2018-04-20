@@ -1,0 +1,34 @@
+body {
+  background: $dark;
+
+  #application-container {
+    background: $white;
+  }
+}
+
+// Application Layout
+#application-container {
+  .app-layout {
+    display: flex;
+    align-items: stretch;
+
+    #sidebar,
+    #content-area {
+      flex: 0 0 auto;
+    }
+
+    #sidebar {
+      width: 15%;
+      background: $white;
+    }
+
+    #content-area {
+      flex:1 1 auto;
+      background: $white;
+
+      #content-wrapper {
+        margin: rem(40);
+      }
+    }
+  }
+}

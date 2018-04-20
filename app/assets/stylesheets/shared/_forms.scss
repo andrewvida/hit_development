@@ -35,4 +35,21 @@
 
 .post-type-container {
   display: flex;
+
+  .post-type {
+    flex: 1 1 auto;
+    text-align: center;
+
+    border: 1px solid $light;
+    margin: rem(10);
+    padding: rem(10);
+
+    input[type='radio'] {
+      width: rem(20);
+      height: rem(20);
+      margin: auto;
+    }
+
+  }
 }
+
