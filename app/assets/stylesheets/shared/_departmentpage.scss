@@ -8,6 +8,24 @@
 
   .post-list-filter-container {
     margin: rem(40) 0;
+    font-size: rem(14);
+    display: flex;
+
+    ul.nav-pills li.nav-item a { color: $dark; }
+    ul.nav-pills li.nav-item a.active { background: $dark; color: $white; }
+
+
+
+    ul.nav-pills,
+    .filter-field {
+      flex: 1 1 auto;
+    }
+
+    .filter-field {
+      input {
+        width: 100%;
+      }
+    }
   }
 }
 

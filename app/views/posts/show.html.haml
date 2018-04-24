@@ -10,9 +10,9 @@
 
   %p
     Posted by:
-    = @post.user.name
+    =link_to @post.user.name, user_path(@post.user)
     for
-    = @post.department.department_name
+    =link_to @post.department.department_name, department_path(@post.department)
 
   %p
     Post type:

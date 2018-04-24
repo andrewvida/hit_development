@@ -4,6 +4,10 @@
   min-height: rem(300);
   border:1px solid $ccc;
 
+  .public-DraftEditor-content {
+    min-height: rem(150);
+  }
+
   .rdw-editor-toolbar {
     border: none;
     background: $light;

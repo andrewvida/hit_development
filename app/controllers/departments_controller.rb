@@ -10,7 +10,7 @@ class DepartmentsController < ApplicationController
   # GET /departments/1
   # GET /departments/1.json
   def show
-    @posts = Post.where(department_id: params[:id])
+    @posts = Post.where(department_id: params[:id]).order('updated_at DESC')
   end
 
   # GET /departments/new

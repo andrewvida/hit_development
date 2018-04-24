@@ -2,7 +2,7 @@ class HomeController < ApplicationController
   layout 'poster'
 
   def index
-    @recent_posts = Post.all.take(4)
+    @recent_posts = Post.all.order('updated_at DESC').take(4)
   end
 
   def search
