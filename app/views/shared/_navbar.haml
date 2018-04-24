@@ -16,21 +16,13 @@
             -get_departments.each do |dept|
               %a.dropdown-item{href: department_path(dept) }=dept.department_name
 
-        %a#tour-new-post.btn.btn-success{href:new_post_path}
-          New Post
-
-        #option-set-2
-          %a#tour-actions.btn.btn-outline-secondary.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button", "data-target"=>"option-set-2"}
-            More actions
-          .dropdown-menu.nav-actions{"aria-labelledby" => "tour-actions"}
-            %a.dropdown-item{href: new_user_path } Add a Teammate
-            %a.dropdown-item{href: new_department_path } Add a Department
-            %a.dropdown-item{href: '#' } Manage my Posts
+        / %a#tour-new-post.btn.btn-success{href:new_post_path}
+        /   New Post
 
     .options-container
       %nav
-        %a#tour-careers.btn.btn-outline-primary{href:'/careers.html'}
-          %span.badge.badge-primary NEW
+        %a#tour-careers.btn.btn-primary{href:'/careers.html'}
+          %span.badge NEW
           Careers
         %a#tour-help.link{:href => "#"}
           Need help?

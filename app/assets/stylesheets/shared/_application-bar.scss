@@ -51,6 +51,8 @@
           outline: none;
           text-decoration: none;
         }
+
+        a.btn-primary span.badge { background: $yellow; color: $black; }
       }
 
       &:last-child { flex: 1 1 auto; }

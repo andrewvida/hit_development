@@ -86,11 +86,9 @@
   }
 }
 
-#main-dept-view-search {
+.form-group.tags {
   .app-tag-input {
-    @include border-radius(0);
-    border:none;
-    border-bottom:1px solid $ccc;
-    height: rem(50);
+    height: rem(48);
+    button.btn-default { display: none; }
   }
 }

@@ -50,7 +50,17 @@
       border-left: none;
       border-right: none;
 
-      a:hover > svg { color: $blue; }
+      svg {
+        @include border-radius($round);
+        @include shadow;
+        background: $blue;
+        padding: rem(4);
+        color: $white;
+        width: rem(20);
+        height: rem(20);
+      }
+
+      a:hover > svg { background: $green; }
     }
     a {
       @include border-radius;
