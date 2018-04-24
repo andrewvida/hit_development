@@ -19,15 +19,57 @@
         =select_tag 'post[department_id]', options_from_collection_for_select(get_departments, 'id', 'department_name'), { :class => 'form-control form-control-lg'}
 
   .form-group
-    = form.label :post_type
+    = form.label :post_type, "Choose the type of post you'd like to create."
     .post-type-container
-      -1.upto(5) do |index|
-        .post-type
-          %label{for:"pt-#{index}"}
-            %img{src:"/admin-images/post-type-#{index}.png"}
-            .description
-              %p This message will explain what this post is.
-            %input.form-control{name:'post[post_type]', value: index, type:'radio', id:"pt-#{index}"}
+      / Announcement
+      .post-type
+        %label{for:"pt-1"}
+          %img{src:"/admin-images/post-type-1.png"}
+          .description
+            %p
+              %span.bold Important Anouncement.
+              Everyone will be notified as soon as they visit the Hendrick IT website.
+          %input.form-control{name:'post[post_type]', value: 1, type:'radio', id:"pt-1"}
+
+      / FAQ
+      .post-type
+        %label{for:"pt-2"}
+          %img{src:"/admin-images/post-type-2.png"}
+          .description
+            %p
+              %span.bold FAQ.
+              Avoid answering the same questions by adding the most common ones here.
+          %input.form-control{name:'post[post_type]', value: 1, type:'radio', id:"pt-2"}
+
+      / How To
+      .post-type
+        %label{for:"pt-3"}
+          %img{src:"/admin-images/post-type-3.png"}
+          .description
+            %p
+              %span.bold How-To.
+              Write a brief tutorial and help your teammates troubleshoot any issue.
+          %input.form-control{name:'post[post_type]', value: 3, type:'radio', id:"pt-3"}
+
+      / Links
+      .post-type
+        %label{for:"pt-4"}
+          %img{src:"/admin-images/post-type-4.png"}
+          .description
+            %p
+              %span.bold Links &amp; Forms.
+              Gather and share resources like URLs and forms.
+          %input.form-control{name:'post[post_type]', value: 4, type:'radio', id:"pt-4"}
+
+      / Updates
+      .post-type
+        %label{for:"pt-5"}
+          %img{src:"/admin-images/post-type-5.png"}
+          .description
+            %p
+              %span.bold Department Update.
+              Anything interesting happening in your department? Write a brief post to let everyone know about it.
+          %input.form-control{name:'post[post_type]', value: 5, type:'radio', id:"pt-5"}
 
 
   .form-group.field.details

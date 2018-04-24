@@ -2,3 +2,28 @@
 #post-detail-view {
   padding: rem(40);
 }
+
+#department-posts {
+  .department-post-list {
+    > article {
+      margin-bottom: rem(10);
+      padding: rem(20);
+    }
+
+    .post-type--announcement {
+      border: 5px solid $red;
+    }
+    .post-type--faq {
+      border: 5px solid $green;
+    }
+    .post-type--howto {
+      border: 5px solid $purple;
+    }
+    .post-type--links {
+      border: 5px solid $orange;
+    }
+    .post-type--blog {
+      border: 5px solid $blue;
+    }
+  }
+}

@@ -54,14 +54,44 @@ export default class DepartmentPosts extends React.Component {
     return '/posts/'+ post.id
   }
 
+  _ui_render_post_type_class(post_type) {
+    switch(post_type) {
+      case 0:
+        return 'post-type--announcement';
+      break;
+
+      case 1:
+        return 'post-type--faq';
+      break;
+
+      case 2:
+        return 'post-type--howto';
+      break;
+
+      case 3:
+        return 'post-type--links';
+      break;
+
+      case 4:
+        return 'post-type--blog';
+      break;
+
+      default:
+        return 'post-type--blog'
+    }
+  }
+
   _ui_filterable_list () {
     var self = this
     var filtered = this.props.posts.filter((post) => post.title.toLowerCase().indexOf(this.state.filterField.toLowerCase()) !== -1);
 
     return this.sortingFilter(this.state.postType, filtered).map(function(post, index) {
       return (
-        <div key={index}>
-          <a href={self._ui_link_render(post)}>{post.title} :: {post.post_type}</a>
+        <div key={index} className="department-post-list">
+          <article className={self._ui_render_post_type_class(post.post_type)}>
+            <a href={self._ui_link_render(post)}>{post.title}</a>
+            <p>{post.details}</p>
+          </article>
         </div>
         )
     })
@@ -73,10 +103,13 @@ export default class DepartmentPosts extends React.Component {
         <div className="post-list-filter-container">
           { this._ui_filter_navigation() }
           <div className="filter-field">
-            <input type="text" className="form-control" onChange={this.filterPostsByInput.bind(this)}/>
+            <input type="text" className="form-control" onChange={this.filterPostsByInput.bind(this)} placeholder="Search by title"/>
           </div>
         </div>
-        { this._ui_filterable_list() }
+        <div id="department-posts">
+          { this._ui_filterable_list() }
+        </div>
+
       </div>
     );
   }
