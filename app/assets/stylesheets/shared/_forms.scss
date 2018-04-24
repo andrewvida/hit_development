@@ -1,3 +1,7 @@
+// 3rd Party Components
+@import "vendor/react-draft-wysiwyg.css";
+@import "vendor/react-tagsinput.css";
+
 .wysiwyg-editor {
   min-height: rem(300);
   border:1px solid $ccc;
