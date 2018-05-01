@@ -6,13 +6,17 @@ Simple platform for showcasing HIT. Acts as Marketing and Information Directory
 
 Here are some rules around Users, Posts and the like:
 
+**Quick aside regarding tags**: The `[tags]` engine of choice is [gutentag](https://github.com/pat/gutentag#installation). The main resources (`Users` and `Posts` ... `Departments`?) will have tags assciated with them. This helps the user find answers across resources by keyword.
+
 ### Users
 ````
 user: {
   name,
   email,
+  title,
   department,
-  type,
+  bio,
+  photo_url,
   [tags]
 }
 ````
@@ -36,6 +40,7 @@ The `author` privilage can post to their department and has the access to a few 
 ````
 post: {
   title,
+  something,
   description,
   department,
   type,
