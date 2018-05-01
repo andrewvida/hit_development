@@ -7,33 +7,60 @@ Simple platform for showcasing HIT. Acts as Marketing and Information Directory
 Here are some rules around Users, Posts and the like:
 
 ### Users
-`user:{ name, email, department, type, [tags]}`
+````
+user: {
+  name,
+  email,
+  department,
+  type,
+  [tags]
+}
+````
 
-Types:
+User Roles:
 
 - `executive`
-- `department_head`
+- `manager`
 - `author`
 
 #### Executive
-The `executive` privilage can post `announements` that are displayed on all `department` views. Example: `Hendrick IT offices will be closed Friday!`
+The `executive` privilage can post to any / all departments and has the access to all `post types`.
 
-#### Department Head
-The `department_head` privilage can post `announements`, `stories`, `FAQs`, `resources` and `staff`. These posts are limitted to their `Department` views.
+#### Manager
+The `manager` privilage can post to their department and has the access to all `post types`.
 
 #### Author
-The `author` privilage can post `stories`, `resources`, `staff`. These posts are limitted to their `Department` views.
+The `author` privilage can post to their department and has the access to a few `post types`.
 
 ### Posts
-`post:{ title, description, department, type, image, [tags]}`
+````
+post: {
+  title,
+  description,
+  department,
+  type,
+  image,
+  [tags]
+}
+````
 
-Types:
+Post Types:
 
-- `announcements`
-- `story`
+- `Announcements`
 - `FAQ`
-- `resource`
-- `staff`
+- `How-to`
+- `Links / Forms`
+- `Department News`
+
+
+### Departments
+````
+department: {
+  department_name,
+  [tags]
+}
+````
+
 
 ## 3rd Party
 
