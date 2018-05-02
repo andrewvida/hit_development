@@ -14,7 +14,7 @@ user: {
   name,
   email,
   title,
-  department,
+  department_id,
   bio,
   photo_url,
   [tags]
@@ -30,8 +30,8 @@ User Roles:
 #### Executive
 The `executive` privilage can post to any / all departments and has the access to all `post types`.
 
-#### Manager
-The `manager` privilage can post to their department and has the access to all `post types`.
+#### Department Head
+The `department_head` privilage can post to their department and has the access to all `post types`.
 
 #### Author
 The `author` privilage can post to their department and has the access to a few `post types`.
@@ -40,11 +40,14 @@ The `author` privilage can post to their department and has the access to a few 
 ````
 post: {
   title,
-  something,
-  description,
-  department,
-  type,
-  image,
+  summary (non-html),
+  description (html),
+  department_id,
+  post_type_id,
+  image_url,
+  author_id,
+  action_url,
+  expiration_date
   [tags]
 }
 ````
@@ -57,15 +60,30 @@ Post Types:
 - `Links / Forms`
 - `Department News`
 
-
 ### Departments
 ````
 department: {
-  department_name,
+  name,
+  department_head_id,
   [tags]
 }
 ````
 
+### PostType
+````
+post_type: {
+  name
+}
+````
+
+### EditPermissions
+````
+edit_permission: {
+  post_type_id,
+  user_id,
+  department_id
+}
+````
 
 ## 3rd Party
 
