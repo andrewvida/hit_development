@@ -50,29 +50,44 @@ tags = [
   'mobile apps']
 
 departments = [
+  'Executive',
   'Software',
   'Purchasing',
   'Operations',
   'Engineering',
   'Project Management']
 
+post_types = [
+  'announcements',
+  'howto',
+  'faq',
+  'job',
+  'blog',
+  'linkto']
+
+# Create Departments
+# -------------------------------
 departments.each do |dept|
-  department = Department.create(department_name: dept,
-    mission:Faker::BackToTheFuture.quote)
+  department = Department.create( name: dept,
+                                  department_head: nil,
+                                  mission:Faker::BackToTheFuture.quote)
+
   department.tag_names = [tags.sample, tags.sample, tags.sample, tags.sample]
   department.save
-  puts department.department_name
+  puts department.name
 end
 
 puts 'Departments created.'
 
+# Create Users
+# -------------------------------
 50.times do |index|
-  user = User.create(name: Faker::Name.unique.name,
-    email:Faker::Internet.email,
-    title:Faker::Job.title,
-    department: Department.all.sample,
-    photo_url: "https://robohash.org/#{tags.sample}",
-    bio: Faker::Lorem.sentence(5))
+  user = User.create( name: Faker::Name.unique.name,
+                      email:Faker::Internet.email,
+                      title:Faker::Job.title,
+                      department: Department.all.sample,
+                      photo_url: "https://robohash.org/#{tags.sample}",
+                      bio: Faker::Lorem.sentence(5))
   user.tag_names = [tags.sample, tags.sample, tags.sample, tags.sample]
   user.save
   puts user.name
@@ -80,12 +95,28 @@ end
 
 puts '50 Users created.'
 
+# Create Post Types
+# -------------------------------
+post_types.each do |type|
+  post_type = PostType.create(name: type)
+  post_type.save
+  puts post_type.name
+end
+
+puts 'PostTypes created.'
+
+# Create Posts
+# -------------------------------
 100.times do |index|
-  post = Post.create(title: Faker::Lorem.sentence(1),
-    details: Faker::Lorem.paragraph(8),
-    post_type: [0,1,2,3,4].sample,
-    user: User.all.sample,
-    department: Department.all.sample)
+  post = Post.create( title: Faker::Lorem.sentence(1),
+                      summary: Faker::Lorem.paragraph(4),
+                      body: Faker::Lorem.paragraph(8),
+                      post_type: PostType.all.sample,
+                      author: User.all.sample,
+                      image_url: nil,
+                      action_url: nil,
+                      expiration_date: nil,
+                      department: Department.all.sample)
   post.tag_names = [tags.sample, tags.sample, tags.sample, tags.sample]
   post.save
   puts post.title

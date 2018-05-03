@@ -14,10 +14,7 @@
             IT Departments
           .dropdown-menu.nav-departments{"aria-labelledby" => "tour-departments"}
             -get_departments.each do |dept|
-              %a.dropdown-item{href: department_path(dept) }=dept.department_name
-
-        / %a#tour-new-post.btn.btn-success{href:new_post_path}
-        /   New Post
+              %a.dropdown-item{href: department_path(dept) }=dept.name
 
     .options-container
       %nav
@@ -26,7 +23,6 @@
           Careers
         %a#tour-help.link{:href => "#"}
           Need help?
-
         %a#tour-user.link{:href => "#"}
           %a{href: user_path(current_user), class: "avatar bg-#{['red', 'green', 'blue', 'purple', 'yellow'].sample}"}
             %img{src: current_user.photo_url}

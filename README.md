@@ -41,7 +41,7 @@ The `author` privilage can post to their department and has the access to a few 
 post: {
   title,
   summary (non-html),
-  description (html),
+  body (html),
   department_id,
   post_type_id,
   image_url,

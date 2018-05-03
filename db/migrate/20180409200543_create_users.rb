@@ -5,7 +5,9 @@ class CreateUsers < ActiveRecord::Migration[5.1]
       t.string :email
       t.string :title
       t.references :department, foreign_key: true
-
+      t.text :bio
+      t.string :photo_url, default: 'https://robohash.org/hendrick'
+      t.string :slack_username
       t.timestamps
     end
   end

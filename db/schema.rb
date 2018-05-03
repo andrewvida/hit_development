@@ -10,13 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180420200344) do
+ActiveRecord::Schema.define(version: 20180502172703) do
 
   create_table "departments", force: :cascade do |t|
-    t.string "department_name"
+    t.string "name"
+    t.text "mission"
+    t.integer "department_head_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.text "mission"
+    t.index ["department_head_id"], name: "index_departments_on_department_head_id"
+  end
+
+  create_table "edit_permissions", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "department_id"
+    t.integer "post_type_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["department_id"], name: "index_edit_permissions_on_department_id"
+    t.index ["post_type_id"], name: "index_edit_permissions_on_post_type_id"
+    t.index ["user_id"], name: "index_edit_permissions_on_user_id"
   end
 
   create_table "gutentag_taggings", force: :cascade do |t|
@@ -39,16 +52,28 @@ ActiveRecord::Schema.define(version: 20180420200344) do
     t.index ["taggings_count"], name: "index_gutentag_tags_on_taggings_count"
   end
 
-  create_table "posts", force: :cascade do |t|
-    t.string "title"
-    t.text "details"
-    t.integer "department_id"
-    t.integer "user_id"
-    t.integer "post_type"
+  create_table "post_types", force: :cascade do |t|
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "posts", force: :cascade do |t|
+    t.string "title"
+    t.text "summary"
+    t.text "body"
+    t.integer "department_id"
+    t.integer "post_type_id"
+    t.integer "author_id"
+    t.integer "post_type"
+    t.string "image_url"
+    t.string "action_url"
+    t.datetime "expiration_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["author_id"], name: "index_posts_on_author_id"
     t.index ["department_id"], name: "index_posts_on_department_id"
-    t.index ["user_id"], name: "index_posts_on_user_id"
+    t.index ["post_type_id"], name: "index_posts_on_post_type_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -56,10 +81,11 @@ ActiveRecord::Schema.define(version: 20180420200344) do
     t.string "email"
     t.string "title"
     t.integer "department_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.text "bio"
     t.string "photo_url", default: "https://robohash.org/hendrick"
+    t.string "slack_username"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["department_id"], name: "index_users_on_department_id"
   end
 

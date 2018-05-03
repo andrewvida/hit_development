@@ -7,7 +7,7 @@
         .block.links
           %label Departments
           -get_departments.each do |dept|
-            %a{href: department_path(dept)}=dept.department_name
+            %a{href: department_path(dept)}=dept.name
         .block.links
           %label Resources
           %a{:href => "#"} Leadership
