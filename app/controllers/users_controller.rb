@@ -12,6 +12,13 @@ class UsersController < ApplicationController
   def show
   end
 
+  # GET /users/1/available_post_types
+  def available_post_types
+    respond_to do |format| 
+      format.json { render json: PostType.all }
+    end
+  end
+
   # GET /users/new
   def new
     @user = User.new
