@@ -15,10 +15,8 @@ ActiveRecord::Schema.define(version: 20180502172703) do
   create_table "departments", force: :cascade do |t|
     t.string "name"
     t.text "mission"
-    t.integer "department_head_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["department_head_id"], name: "index_departments_on_department_head_id"
   end
 
   create_table "edit_permissions", force: :cascade do |t|
@@ -81,6 +79,7 @@ ActiveRecord::Schema.define(version: 20180502172703) do
     t.string "email"
     t.string "title"
     t.integer "department_id"
+    t.boolean "department_head", default: false
     t.text "bio"
     t.string "photo_url", default: "https://robohash.org/hendrick"
     t.string "slack_username"

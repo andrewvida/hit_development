@@ -1,4 +1,5 @@
 class Department < ApplicationRecord
   Gutentag::ActiveRecord.call self
-  belongs_to :department_head, class_name: 'User'
+  has_many :users
+  has_one :department_head, -> { where(department_head: true) }, class_name: "User"
 end
