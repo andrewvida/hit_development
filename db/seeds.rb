@@ -102,7 +102,7 @@ puts 'Departments created.'
 
 # Create Users
 # -------------------------------
-50.times do |index|
+100.times do |index|
   user = User.create!( name: Faker::Name.unique.name,
                        email:Faker::Internet.email,
                        title:Faker::Job.title,
@@ -114,7 +114,7 @@ puts 'Departments created.'
   puts user.name
 end
 
-puts '50 Users created.'
+puts '100 Users created.'
 
 # Assign department heads
 # -------------------------------
@@ -159,8 +159,7 @@ puts '100 Posts created.'
 # -------------------------------
 
 100.times do |index|
-  ep = EditPermission.create!(user: User.all.sample, department: Department.all.sample, post_type: PostType.all.sample)
-  puts ep
+  EditPermission.create!(user: User.all.sample, department: Department.all.sample, post_type: PostType.all.sample)
 end
 
 puts '100 Permissions created.'

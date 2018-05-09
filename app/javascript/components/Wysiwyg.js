@@ -7,7 +7,7 @@ import htmlToDraft from 'html-to-draftjs';
 export default class Wysiwyg extends React.Component {
   constructor(props){
     super(props)
-    const html = this.props.details;
+    const html = this.props.body;
     const contentBlock = htmlToDraft(html);
 
     if (contentBlock) {

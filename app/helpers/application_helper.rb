@@ -10,6 +10,10 @@ module ApplicationHelper
     tags.sort_by{|t| t[:taggings_count]}
   end
 
+  def get_post_types
+    PostType.all
+  end
+
   def all_tags
     tags = Gutentag::Tag.all
     tags
@@ -25,18 +29,20 @@ module ApplicationHelper
 
   def current_user_post_permission(user)
     permission = EditPermission.where(user: user)
+
     available_departments = []
     available_post_types = []
 
     permission.each do |perms|
-      available_departments = Department.where(id:perms.department_id)
-      available_post_types = PostType.where(id:perms.post_type_id)
+      available_departments << Department.find(perms.department_id)
+      available_post_types << PostType.find(perms.post_type_id)
     end
 
     result = {
-      available_departments: available_departments,
-      available_post_types: available_post_types,
+      available_departments: available_departments.uniq.flatten,
+      available_post_types: available_post_types.uniq.flatten,
       current_user: user }
+
   end
 
   def tags_by_department

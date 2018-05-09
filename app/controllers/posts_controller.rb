@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
+  include ApplicationHelper
 
   # GET /posts
   # GET /posts.json
@@ -15,6 +16,7 @@ class PostsController < ApplicationController
   # GET /posts/new
   def new
     @post = Post.new
+    @permissions = current_user_post_permission(current_user)
   end
 
   # GET /posts/1/edit

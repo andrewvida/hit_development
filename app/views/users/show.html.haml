@@ -6,7 +6,7 @@
   .information
     %h3= @user.name
     %p= @user.title
-    %p= @user.department.department_name
+    %p= @user.department.name
     %a{href:"mailto: #{@user.email}"} Email me
 
   .bio

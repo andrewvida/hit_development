@@ -1,96 +1,75 @@
-= form_with(model: post, local: true) do |form|
-  - if post.errors.any?
-    #error_explanation
-      %h2
-        = pluralize(post.errors.count, "error")
-        prohibited this post from being saved:
-      %ul
-        - post.errors.full_messages.each do |message|
-          %li= message
-  .row
-    .col-9
-      .form-group
-        = form.label :title
-        = form.text_field :title, id: :post_title, class:'form-control form-control-lg'
-    .col-3
-      .form-group
-        = form.label :department_id, 'Choose a department'
-        =select_tag 'post[department_id]', options_from_collection_for_select(get_departments, 'id', 'name'), { :class => 'form-control form-control-lg'}
+/ .card.bg-light.mb-4
+/   .card-body
+/     =@permissions[:current_user].name
+/     can post:
+/     =@permissions[:available_post_types].map {|type| type.title }
+/     to:
+/     =@permissions[:available_departments].map {|dept| dept.name }
 
-  .form-group
-    = form.label :post_type_id, "Choose the type of post you'd like to create."
+-if @permissions[:available_departments].empty? || @permissions[:available_post_types].empty?
+  %p.lead
+    You are unable to create Posts.
+    Send a message to your
+    %a{'data-placement'=>'bottom', 'data-toggle'=>'tooltip', 'title'=>@permissions[:current_user].department.department_head.name, href: user_path(@permissions[:current_user].department.department_head)}
+      Department Head
+    to gain access.
+-else
+  = form_with(model: post, local: true) do |form|
+    - if post.errors.any?
+      #error_explanation
+        %h2
+          = pluralize(post.errors.count, "error")
+          prohibited this post from being saved:
+        %ul
+          - post.errors.full_messages.each do |message|
+            %li= message
 
-    .post-type-container
-      / Announcement
-      .post-type
-        %label{for:"pt-0"}
-          %img{src:"/admin-images/post-type-0.png"}
-          .description
-            %p
-              %span.bold Important Anouncement.
-              Everyone will be notified as soon as they visit the Hendrick IT website.
-          %input.form-control{name:'post[post_type_id]', value: 0, type:'radio', id:"pt-0"}
+    .form-group.required
+      = form.label :post_type_id, "Choose the type of post you'd like to create."
+      .post-type-container
+        -@permissions[:available_post_types].each do |type|
+          .post-type
+            %label{for:"pt-#{type.id}"}
+              .post-type-block
+                .icon
+                  %img{src:"/admin-images/#{type.name}.png"}
+                .description
+                  %p
+                    %span.bold=type.title
+                    =type.description
+              %input.form-control{name:'post[post_type_id]', value: 1, type:'radio', id:"pt-#{type.id}"}
 
-      / FAQ
-      .post-type
-        %label{for:"pt-1"}
-          %img{src:"/admin-images/post-type-1.png"}
-          .description
-            %p
-              %span.bold FAQ.
-              Avoid answering the same questions by adding the most common ones here.
-          %input.form-control{name:'post[post_type_id]', value: 1, type:'radio', id:"pt-1"}
+    .form-group.required
+      = form.label :title
+      = form.text_field :title, id: :post_title, class:'form-control form-control-lg'
 
-      / How To
-      .post-type
-        %label{for:"pt-2"}
-          %img{src:"/admin-images/post-type-2.png"}
-          .description
-            %p
-              %span.bold How-To.
-              Write a brief tutorial and help your teammates troubleshoot any issue.
-          %input.form-control{name:'post[post_type_id]', value: 2, type:'radio', id:"pt-2"}
+    .form-group.required
+      %label Choose a department
 
-      / Links
-      .post-type
-        %label{for:"pt-3"}
-          %img{src:"/admin-images/post-type-3.png"}
-          .description
-            %p
-              %span.bold Links &amp; Forms.
-              Gather and share resources like URLs and forms.
-          %input.form-control{name:'post[post_type_id]', value: 3, type:'radio', id:"pt-3"}
+      .department-checkboxes
+        -@permissions[:available_departments].each do |dept|
+          %label.check-block{for: "department-#{dept.id}"}
+            %input.form-control{name:'post[department_id]', value: dept.id, type:'checkbox', id:"department-#{dept.id}"}
+            =dept.name
 
-      / Updates
-      .post-type
-        %label{for:"pt-4"}
-          %img{src:"/admin-images/post-type-4.png"}
-          .description
-            %p
-              %span.bold Department Update.
-              Anything interesting happening in your department? Write a brief post to let everyone know about it.
-          %input.form-control{name:'post[post_type_id]', value: 4, type:'radio', id:"pt-4"}
+    .form-group
+      = form.label :image_url, 'Preview Image URL (Optional)'
+      = form.text_field :image_url, id: :post_image_url, class:'form-control form-control-lg'
 
-      / Jobs
-      .post-type
-        %label{for:"pt-5"}
-          %img{src:"/admin-images/post-type-5.png"}
-          .description
-            %p
-              %span.bold Job Post.
-              Have a position you'd like to promote internally? Post it here to see who will step up.
-          %input.form-control{name:'post[post_type_id]', value: 5, type:'radio', id:"pt-5"}
+    .form-group.tags.required
+      %label Tags
+      =react_component('TagSearch', {taggings: all_tags, terms: post.tag_names, binding:'post[tag_names]'})
+
+    .form-group.field.details.required
+      = form.label :details
+      =react_component('Wysiwyg', {body: post.body || ''})
+
+    .form-group
+      = form.label :action_url, 'Additional URL (Optional)'
+      = form.text_field :action_url, id: :post_action_url, class:'form-control form-control-lg'
 
 
-  .form-group.field.details
-    = form.label :details
-    =react_component('Wysiwyg', {details: post.body || ''})
-
-  .form-group.tags
-    %label Tags
-    =react_component('TagSearch', {taggings: all_tags, terms: post.tag_names, binding:'post[tag_names]'})
-
-  .actions
-    %input.wz-output{type:'hidden', name: 'post[body]'}
-    %input{type:'hidden', name: 'post[author_id]', value: post.author_id || 1}
-    = form.submit 'Save', class:'btn btn-success btn-lg'
+    .actions
+      %input.wz-output{type:'hidden', name: 'post[body]'}
+      %input{type:'hidden', name: 'post[author_id]', value: post.author_id || 1}
+      = form.submit 'Save', class:'btn btn-success btn-lg'

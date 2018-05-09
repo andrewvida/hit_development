@@ -31,7 +31,9 @@ visitorTour.init();
 visitorTour.start();
 
 $(function(){
+  $('[data-toggle="tooltip"]').tooltip()
   $('#tour-help').on('click', function(){
     visitorTour.restart();
   })
+
 })
