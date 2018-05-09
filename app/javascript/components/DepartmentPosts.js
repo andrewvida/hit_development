@@ -22,7 +22,7 @@ export default class DepartmentPosts extends React.Component {
   }
 
   sortingFilter(type, array){
-    return (type === null) ? array : array.filter((post) => post.post_type === this.state.postType)
+    return (type === null) ? array : array.filter((post) => post.post_type_id === this.state.postType)
   }
 
   _ui_filter_navigation(post) {
@@ -32,19 +32,23 @@ export default class DepartmentPosts extends React.Component {
           <a href="#" onClick={this.filterPostsByType.bind(this, null)} className={this.state.postType === null ? "nav-link active" : "nav-link"}>All</a>
         </li>
         <li className="nav-item">
-          <a href="#" onClick={this.filterPostsByType.bind(this, 0)} className={this.state.postType === 0 ? "nav-link active" : "nav-link"}>Announcements</a>
-        </li>
-        <li className="nav-item">
-          <a href="#" onClick={this.filterPostsByType.bind(this, 1)} className={this.state.postType === 1 ? "nav-link active" : "nav-link"}>FAQs</a>
+          <a href="#" onClick={this.filterPostsByType.bind(this, 1)} className={this.state.postType === 1 ? "nav-link active" : "nav-link"}>Announcements</a>
         </li>
         <li className="nav-item">
           <a href="#" onClick={this.filterPostsByType.bind(this, 2)} className={this.state.postType === 2 ? "nav-link active" : "nav-link"}>How-Tos</a>
         </li>
         <li className="nav-item">
-          <a href="#" onClick={this.filterPostsByType.bind(this, 3)} className={this.state.postType === 3 ? "nav-link active" : "nav-link"}>Links &amp; Forms</a>
+          <a href="#" onClick={this.filterPostsByType.bind(this, 3)} className={this.state.postType === 3 ? "nav-link active" : "nav-link"}>FAQs</a>
+        </li>
+
+        <li className="nav-item">
+          <a href="#" onClick={this.filterPostsByType.bind(this, 4)} className={this.state.postType === 4 ? "nav-link active" : "nav-link"}>Jobs</a>
         </li>
         <li className="nav-item">
-          <a href="#" onClick={this.filterPostsByType.bind(this, 4)} className={this.state.postType === 4 ? "nav-link active" : "nav-link"}>Department News</a>
+          <a href="#" onClick={this.filterPostsByType.bind(this, 5)} className={this.state.postType === 5 ? "nav-link active" : "nav-link"}>Department News</a>
+        </li>
+        <li className="nav-item">
+          <a href="#" onClick={this.filterPostsByType.bind(this, 6)} className={this.state.postType === 6 ? "nav-link active" : "nav-link"}>Links &amp; Forms</a>
         </li>
       </ul>
     )
@@ -56,12 +60,8 @@ export default class DepartmentPosts extends React.Component {
 
   _ui_render_post_type_class(post_type) {
     switch(post_type) {
-      case 0:
-        return 'post-type--announcement';
-      break;
-
       case 1:
-        return 'post-type--faq';
+        return 'post-type--announcements';
       break;
 
       case 2:
@@ -69,11 +69,19 @@ export default class DepartmentPosts extends React.Component {
       break;
 
       case 3:
-        return 'post-type--links';
+        return 'post-type--faq';
       break;
 
       case 4:
+        return 'post-type--job';
+      break;
+
+      case 5:
         return 'post-type--blog';
+      break;
+
+      case 6:
+        return 'post-type--linkto';
       break;
 
       default:
@@ -88,7 +96,7 @@ export default class DepartmentPosts extends React.Component {
     return this.sortingFilter(this.state.postType, filtered).map(function(post, index) {
       return (
         <div key={index} className="department-post-list">
-          <article className={self._ui_render_post_type_class(post.post_type)}>
+          <article className={self._ui_render_post_type_class(post.post_type_id)}>
             <a href={self._ui_link_render(post)}>{post.title}</a>
             <p>{post.details}</p>
           </article>

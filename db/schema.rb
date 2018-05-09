@@ -52,6 +52,8 @@ ActiveRecord::Schema.define(version: 20180502172703) do
 
   create_table "post_types", force: :cascade do |t|
     t.string "name"
+    t.string "title"
+    t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -63,7 +65,6 @@ ActiveRecord::Schema.define(version: 20180502172703) do
     t.integer "department_id"
     t.integer "post_type_id"
     t.integer "author_id"
-    t.integer "post_type"
     t.string "image_url"
     t.string "action_url"
     t.datetime "expiration_date"

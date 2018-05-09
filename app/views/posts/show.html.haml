@@ -10,15 +10,15 @@
 
   %p
     Posted by:
-    =link_to @post.user.name, user_path(@post.user)
+    =link_to @post.author.name, user_path(@post.author)
     for
-    =link_to @post.department.department_name, department_path(@post.department)
+    =link_to @post.department.name, department_path(@post.department)
 
   %p
     Post type:
     = @post.post_type
 
-  %p.lead= @post.details.html_safe
+  %p.lead= @post.body.html_safe
 
   %div
     =link_to 'Edit', edit_post_path(@post)

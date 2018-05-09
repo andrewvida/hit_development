@@ -16,11 +16,27 @@ module ApplicationHelper
   end
 
   def new_announcement_count
-    announcements = Post.where(post_type: 1).count
+    announcements = Post.where(post_type_id: 1).count
   end
 
   def current_user
     User.all.sample
+  end
+
+  def current_user_post_permission(user)
+    permission = EditPermission.where(user: user)
+    available_departments = []
+    available_post_types = []
+
+    permission.each do |perms|
+      available_departments = Department.where(id:perms.department_id)
+      available_post_types = PostType.where(id:perms.post_type_id)
+    end
+
+    result = {
+      available_departments: available_departments,
+      available_post_types: available_post_types,
+      current_user: user }
   end
 
   def tags_by_department

@@ -1,4 +1,6 @@
 #post-form-view
   %h1 New Post
   = render 'form', post: @post
+  =react_component('PostForm', {post: @post, user_post_data: current_user_post_permission(current_user), taggings: all_tags})
+
   = link_to 'Back', posts_path

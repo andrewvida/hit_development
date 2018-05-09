@@ -13,7 +13,7 @@
       -@results[:depts].each do |result|
         %li.list-group-item
           =link_to department_path(result) do
-            %b=result.department_name
+            %b=result.name
             %i=result.tag_names
 
   %section.users.container

@@ -10,7 +10,7 @@
       padding: rem(20);
     }
 
-    .post-type--announcement {
+    .post-type--announcements {
       border: 5px solid $red;
     }
     .post-type--faq {
@@ -19,11 +19,14 @@
     .post-type--howto {
       border: 5px solid $purple;
     }
-    .post-type--links {
+    .post-type--linkto {
       border: 5px solid $orange;
     }
     .post-type--blog {
       border: 5px solid $blue;
+    }
+    .post-type--job {
+      border: 5px solid $yellow;
     }
   }
 }

@@ -66,9 +66,9 @@ class PostsController < ApplicationController
     def set_post_object
       object = {
         title: post_params[:title],
-        post_type: post_params[:post_type],
-        details: post_params[:details],
-        user_id: post_params[:user_id],
+        post_type_id: post_params[:post_type_id],
+        body: post_params[:body],
+        author_id: post_params[:author_id],
         department_id: post_params[:department_id],
         tag_names: post_params[:tag_names].split(',') || '' }
     end
@@ -79,6 +79,6 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:title, :details, :department_id, :user_id, :post_type, :tag_names)
+      params.require(:post).permit(:title, :body, :department_id, :author_id, :post_type_id, :tag_names)
     end
 end

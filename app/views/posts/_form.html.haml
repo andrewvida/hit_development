@@ -7,7 +7,6 @@
       %ul
         - post.errors.full_messages.each do |message|
           %li= message
-
   .row
     .col-9
       .form-group
@@ -16,12 +15,12 @@
     .col-3
       .form-group
         = form.label :department_id, 'Choose a department'
-        =select_tag 'post[department_id]', options_from_collection_for_select(get_departments, 'id', 'department_name'), { :class => 'form-control form-control-lg'}
+        =select_tag 'post[department_id]', options_from_collection_for_select(get_departments, 'id', 'name'), { :class => 'form-control form-control-lg'}
 
   .form-group
-    = form.label :post_type, "Choose the type of post you'd like to create."
-    .post-type-container
+    = form.label :post_type_id, "Choose the type of post you'd like to create."
 
+    .post-type-container
       / Announcement
       .post-type
         %label{for:"pt-0"}
@@ -30,7 +29,7 @@
             %p
               %span.bold Important Anouncement.
               Everyone will be notified as soon as they visit the Hendrick IT website.
-          %input.form-control{name:'post[post_type]', value: 0, type:'radio', id:"pt-0"}
+          %input.form-control{name:'post[post_type_id]', value: 0, type:'radio', id:"pt-0"}
 
       / FAQ
       .post-type
@@ -40,7 +39,7 @@
             %p
               %span.bold FAQ.
               Avoid answering the same questions by adding the most common ones here.
-          %input.form-control{name:'post[post_type]', value: 1, type:'radio', id:"pt-1"}
+          %input.form-control{name:'post[post_type_id]', value: 1, type:'radio', id:"pt-1"}
 
       / How To
       .post-type
@@ -50,7 +49,7 @@
             %p
               %span.bold How-To.
               Write a brief tutorial and help your teammates troubleshoot any issue.
-          %input.form-control{name:'post[post_type]', value: 2, type:'radio', id:"pt-2"}
+          %input.form-control{name:'post[post_type_id]', value: 2, type:'radio', id:"pt-2"}
 
       / Links
       .post-type
@@ -60,7 +59,7 @@
             %p
               %span.bold Links &amp; Forms.
               Gather and share resources like URLs and forms.
-          %input.form-control{name:'post[post_type]', value: 3, type:'radio', id:"pt-3"}
+          %input.form-control{name:'post[post_type_id]', value: 3, type:'radio', id:"pt-3"}
 
       / Updates
       .post-type
@@ -70,7 +69,7 @@
             %p
               %span.bold Department Update.
               Anything interesting happening in your department? Write a brief post to let everyone know about it.
-          %input.form-control{name:'post[post_type]', value: 4, type:'radio', id:"pt-4"}
+          %input.form-control{name:'post[post_type_id]', value: 4, type:'radio', id:"pt-4"}
 
       / Jobs
       .post-type
@@ -80,18 +79,18 @@
             %p
               %span.bold Job Post.
               Have a position you'd like to promote internally? Post it here to see who will step up.
-          %input.form-control{name:'post[post_type]', value: 5, type:'radio', id:"pt-5"}
+          %input.form-control{name:'post[post_type_id]', value: 5, type:'radio', id:"pt-5"}
 
 
   .form-group.field.details
     = form.label :details
-    =react_component('Wysiwyg', {details: post.details || ''})
+    =react_component('Wysiwyg', {details: post.body || ''})
 
   .form-group.tags
     %label Tags
     =react_component('TagSearch', {taggings: all_tags, terms: post.tag_names, binding:'post[tag_names]'})
 
   .actions
-    %input.wz-output{type:'hidden', name: 'post[details]'}
-    %input{type:'hidden', name: 'post[user_id]', value: post.user_id || 1}
+    %input.wz-output{type:'hidden', name: 'post[body]'}
+    %input{type:'hidden', name: 'post[author_id]', value: post.author_id || 1}
     = form.submit 'Save', class:'btn btn-success btn-lg'

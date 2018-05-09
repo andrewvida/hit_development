@@ -16,7 +16,7 @@
     .col-3
       .form-group
         = form.label :department_id, 'Choose a department'
-        =select_tag 'user[department_id]', options_from_collection_for_select(get_departments, 'id', 'department_name'), { :class => 'form-control form-control-lg'}
+        =select_tag 'user[department_id]', options_from_collection_for_select(get_departments, 'id', 'name'), { :class => 'form-control form-control-lg'}
 
   .form-group
     = form.label :title

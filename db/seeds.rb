@@ -57,13 +57,34 @@ departments = [
   'Engineering',
   'Project Management']
 
-post_types = [
-  'announcements',
-  'howto',
-  'faq',
-  'job',
-  'blog',
-  'linkto']
+post_types = [{
+  name: 'announcements',
+  title: 'Important Anouncement',
+  description: 'Everyone will be notified as soon as they visit the Hendrick IT website.'
+}, {
+  name: 'howto',
+  title: 'How-to',
+  description: 'Write a brief tutorial and help your teammates troubleshoot any issue.'
+}, {
+  name: 'faq',
+  title: 'FAQ',
+  description: 'Avoid answering the same questions by adding the most common ones here.'
+}, {
+  name: 'job',
+  title: 'Job Post',
+  description: "Have a position you'd like to promote internally? Post it here to see who will step up."
+}, {
+  name: 'blog',
+  title: 'Department Update',
+  description: 'Anything interesting happening in your department? Write a brief post to let everyone know about it.'
+}, {
+  name: 'linkto',
+  title: 'Links & Forms',
+  description: 'Gather and share resources like URLs and forms.'
+}]
+
+
+
 
 # Create Departments
 # -------------------------------
@@ -108,8 +129,8 @@ puts 'Assigned all department heads'
 
 # Create Post Types
 # -------------------------------
-post_types.each do |type|
-  post_type = PostType.create!(name: type)
+post_types.each do |pt|
+  post_type = PostType.create!(name: pt[:name], title: pt[:title], description: pt[:description])
   puts post_type.name
 end
 
@@ -121,7 +142,7 @@ puts 'PostTypes created.'
   post = Post.create!( title: Faker::Lorem.sentence(1),
                        summary: Faker::Lorem.paragraph(4),
                        body: Faker::Lorem.paragraph(8),
-                       post_type: PostType.all.sample,
+                       post_type_id: PostType.all.sample.id,
                        author: User.all.sample,
                        image_url: nil,
                        action_url: nil,
@@ -133,3 +154,13 @@ puts 'PostTypes created.'
 end
 
 puts '100 Posts created.'
+
+# Edit Permissions
+# -------------------------------
+
+100.times do |index|
+  ep = EditPermission.create!(user: User.all.sample, department: Department.all.sample, post_type: PostType.all.sample)
+  puts ep
+end
+
+puts '100 Permissions created.'
