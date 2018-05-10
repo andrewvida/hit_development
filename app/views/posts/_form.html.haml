@@ -65,11 +65,16 @@
       = form.label :summary
       = form.text_area :summary, id: :post_summary, class: 'form-control form-control-lg'
 
-    .form-group
-      = form.label :action_url, 'Additional URL (Optional)'
-      = form.text_field :action_url, id: :post_action_url, class:'form-control form-control-lg'
-
+    .row
+      .col-6
+        .form-group
+          = form.label :action_url, 'Additional URL (Optional)'
+          = form.text_field :action_url, id: :post_action_url, class:'form-control form-control-lg'
+      .col-6
+        = form.label :expiration_date, 'When will this post expire? (Optional)'
+        =react_component('DatePicker', {expiration_date: post.expiration_date || ''})
     .actions
       %input.wz-output{type:'hidden', name: 'post[body]'}
+      %input.expiration-output{type:'hidden', name: 'post[expiration_date]'}
       %input{type:'hidden', name: 'post[author_id]', value: post.author_id || 1}
       = form.submit 'Save', class:'btn btn-success btn-lg'

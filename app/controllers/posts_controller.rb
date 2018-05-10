@@ -21,11 +21,13 @@ class PostsController < ApplicationController
 
   # GET /posts/1/edit
   def edit
+    @permissions = current_user_post_permission(current_user)
   end
 
   # POST /posts
   # POST /posts.json
   def create
+    # fail set_post_object.inspect
     @post = Post.new(set_post_object)
 
     respond_to do |format|
@@ -75,6 +77,7 @@ class PostsController < ApplicationController
         author_id: post_params[:author_id],
         summary: post_params[:summary],
         department_id: post_params[:department_id],
+        expiration_date: post_params[:expiration_date],
         tag_names: post_params[:tag_names].split(',') || '' }
     end
 
@@ -84,6 +87,6 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:title, :body, :department_id, :author_id, :post_type_id, :tag_names, :image_url, :action_url, :summary)
+      params.require(:post).permit(:title, :body, :department_id, :author_id, :post_type_id, :tag_names, :image_url, :action_url, :summary, :expiration_date)
     end
 end
