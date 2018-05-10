@@ -86,19 +86,31 @@ export default class DepartmentPosts extends React.Component {
     var self = this
     var filtered = this.props.posts.filter((post) => post.title.toLowerCase().indexOf(this.state.filterField.toLowerCase()) !== -1);
 
-    return this.sortingFilter(this.state.postType, filtered).map(function(post, index) {
+    if (this.sortingFilter(this.state.postType, filtered).length === 0) {
       return (
-        <div key={index} className="department-post-list">
-          <article className={self._ui_render_post_type_class(post.post_type_id)}>
-            <a className="post-title" href={self._ui_link_render(post)}><span className="key"></span> {post.title}</a>
-            <span className="date">{moment(post.updated_at).format('ll')}</span>
-            <p>{post.summary}</p>
-            <a href={self._ui_link_render(post)}>Read more</a>
-          </article>
+        <div className="empty">
+          <span>Nothing to show</span>
         </div>
         )
-    })
+    } else {
+      return this.sortingFilter(this.state.postType, filtered).map(function(post, index) {
+        return (
+          <div key={index} className="department-post-list">
+            <article className={self._ui_render_post_type_class(post.post_type_id)}>
+              <a className="post-title" href={self._ui_link_render(post)}><span className="key"></span> {post.title}</a>
+              <span className="date">{moment(post.updated_at).format('ll')}</span>
+              <p>{post.summary}</p>
+              <a href={self._ui_link_render(post)}>Read more</a>
+            </article>
+          </div>
+          )
+      })
+    }
+
+
   }
+
+
 
   render () {
     return (
