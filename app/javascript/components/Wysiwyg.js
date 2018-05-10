@@ -34,6 +34,14 @@ export default class Wysiwyg extends React.Component {
     // I'm sure I've broken at least 3 laws with this implementation
     // Forgive me, Mom
     $('.wz-output').val(draftToHtml(convertToRaw(editorState.getCurrentContent())))
+    var content = convertToRaw(editorState.getCurrentContent())
+    if (content){
+      var toStr = "";
+      for (var i=0; i< content.blocks.length; i++) {
+        toStr += content.blocks[i].text + ' ';
+      }
+      $('#post_summary').val(toStr)
+    }
 
     return (
       <div className="wysiwyg-editor">

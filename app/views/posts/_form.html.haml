@@ -39,18 +39,15 @@
                     =type.description
               %input.form-control{name:'post[post_type_id]', value: 1, type:'radio', id:"pt-#{type.id}"}
 
-    .form-group.required
-      = form.label :title
-      = form.text_field :title, id: :post_title, class:'form-control form-control-lg'
-
-    .form-group.required
-      %label Choose a department
-
-      .department-checkboxes
-        -@permissions[:available_departments].each do |dept|
-          %label.check-block{for: "department-#{dept.id}"}
-            %input.form-control{name:'post[department_id]', value: dept.id, type:'checkbox', id:"department-#{dept.id}"}
-            =dept.name
+    .row
+      .col-9
+        .form-group.required
+          = form.label :title
+          = form.text_field :title, id: :post_title, class:'form-control form-control-lg'
+      .col-3
+        .form-group.required
+          = form.label :department_id, 'Choose a department'
+          =select_tag 'post[department_id]', options_from_collection_for_select(@permissions[:available_departments], 'id', 'name'), { :class => 'form-control form-control-lg'}
 
     .form-group
       = form.label :image_url, 'Preview Image URL (Optional)'
@@ -61,13 +58,16 @@
       =react_component('TagSearch', {taggings: all_tags, terms: post.tag_names, binding:'post[tag_names]'})
 
     .form-group.field.details.required
-      = form.label :details
+      = form.label :body
       =react_component('Wysiwyg', {body: post.body || ''})
+
+    .form-group.field.details.required
+      = form.label :summary
+      = form.text_area :summary, id: :post_summary, class: 'form-control form-control-lg'
 
     .form-group
       = form.label :action_url, 'Additional URL (Optional)'
       = form.text_field :action_url, id: :post_action_url, class:'form-control form-control-lg'
-
 
     .actions
       %input.wz-output{type:'hidden', name: 'post[body]'}
