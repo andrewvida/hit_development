@@ -27,3 +27,9 @@ body {
     }
   }
 }
+
+.empty {
+  @include border-radius;
+  padding: rem(20);
+  margin: rem(20) 0;
+}

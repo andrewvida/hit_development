@@ -6,4 +6,10 @@
 
 
 #department-post-list
-  =react_component('DepartmentPosts', {posts: @posts})
+  -unless @posts.empty?
+    =react_component('DepartmentPosts', {posts: @posts})
+  -else
+    .empty
+      %p.lead
+        This Department doesn't have any Posts yet.
+        %a{href: new_post_path} Write a new Post.

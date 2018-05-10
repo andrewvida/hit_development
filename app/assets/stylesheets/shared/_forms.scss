@@ -116,3 +116,70 @@
   }
 }
 
+.react-date-picker {
+  @include border-radius;
+  background: $white;
+  border:1px solid $ccc;
+  padding: rem(7.999);
+
+  &.react-date-picker--closed .react-date-picker__calendar { display: none; }
+
+  .react-date-picker__button {
+    display: flex;
+
+    button {
+      background: $white;
+      border:none;
+      outline: none;
+      cursor: pointer;
+      transition: all 0.3s;
+
+      svg {
+        position: relative;
+        top: rem(3)
+      }
+
+      &:hover { background: $light; }
+    }
+  }
+
+  .react-date-picker__button__input {
+    display: flex;
+    flex: 1 1 auto;
+
+    input.react-date-picker__button__input__month,
+    input.react-date-picker__button__input__day,
+    input.react-date-picker__button__input__year {
+      border: none;
+      flex: 0 0 auto;
+      width: rem(60) !important;
+      outline: none;
+      text-align: center;
+    }
+    span.react-date-picker__button__input__divider { color: $ccc; }
+  }
+
+  .react-date-picker__calendar {
+
+    .react-calendar {
+      border-top: 1px solid $ccc;
+      padding-top: rem(10);
+      margin-top: rem(10);
+    }
+
+    button {
+      background: $white;
+      border:none;
+      cursor: pointer;
+      outline: none;
+      transition: all 0.3s;
+      &:hover { background: $light; }
+    }
+
+    .react-calendar__month-view__weekdays {
+      text-align: center;
+      font-weight: bold;
+    }
+  }
+
+}

@@ -62,6 +62,10 @@ post_types = [{
   title: 'Important Anouncement',
   description: 'Everyone will be notified as soon as they visit the Hendrick IT website.'
 }, {
+  name: 'bulletin',
+  title: 'Department Bulletin',
+  description: 'Everyone in the Department will be notified as soon as they visit the Department pages.'
+}, {
   name: 'howto',
   title: 'How-to',
   description: 'Write a brief tutorial and help your teammates troubleshoot any issue.'
@@ -138,22 +142,22 @@ puts 'PostTypes created.'
 
 # Create Posts
 # -------------------------------
-100.times do |index|
-  post = Post.create!( title: Faker::Lorem.sentence(1),
-                       summary: Faker::Lorem.paragraph(4),
-                       body: Faker::Lorem.paragraph(8),
-                       post_type_id: PostType.all.sample.id,
-                       author: User.all.sample,
-                       image_url: nil,
-                       action_url: nil,
-                       expiration_date: nil,
-                       department: Department.all.sample)
-  post.tag_names = [tags.sample, tags.sample, tags.sample, tags.sample]
-  post.save!
-  puts post.title
-end
+# 100.times do |index|
+#   post = Post.create!( title: Faker::Lorem.sentence(1),
+#                        summary: Faker::Lorem.paragraph(4),
+#                        body: Faker::Lorem.paragraph(8),
+#                        post_type_id: PostType.all.sample.id,
+#                        author: User.all.sample,
+#                        image_url: nil,
+#                        action_url: nil,
+#                        expiration_date: nil,
+#                        department: Department.all.sample)
+#   post.tag_names = [tags.sample, tags.sample, tags.sample, tags.sample]
+#   post.save!
+#   puts post.title
+# end
 
-puts '100 Posts created.'
+# puts '100 Posts created.'
 
 # Edit Permissions
 # -------------------------------
