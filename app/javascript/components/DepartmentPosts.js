@@ -1,5 +1,5 @@
 import React from "react"
-import Slide from 'react-reveal/Slide';
+import moment from 'moment'
 
 export default class DepartmentPosts extends React.Component {
   constructor(props){
@@ -29,26 +29,23 @@ export default class DepartmentPosts extends React.Component {
     return (
       <ul className="nav-pills nav">
         <li className="nav-item">
-          <a href="#" onClick={this.filterPostsByType.bind(this, null)} className={this.state.postType === null ? "nav-link active" : "nav-link"}>All</a>
+          <a href="#" onClick={this.filterPostsByType.bind(this, null)} className={this.state.postType === null ? "nav-link active" : "nav-link"}><span className="key bg-light"></span> All</a>
         </li>
         <li className="nav-item">
-          <a href="#" onClick={this.filterPostsByType.bind(this, 1)} className={this.state.postType === 1 ? "nav-link active" : "nav-link"}>Announcements</a>
+          <a href="#" onClick={this.filterPostsByType.bind(this, 3)} className={this.state.postType === 3 ? "nav-link active" : "nav-link"}><span className="key bg-purple"></span> How-Tos</a>
         </li>
         <li className="nav-item">
-          <a href="#" onClick={this.filterPostsByType.bind(this, 2)} className={this.state.postType === 2 ? "nav-link active" : "nav-link"}>How-Tos</a>
-        </li>
-        <li className="nav-item">
-          <a href="#" onClick={this.filterPostsByType.bind(this, 3)} className={this.state.postType === 3 ? "nav-link active" : "nav-link"}>FAQs</a>
+          <a href="#" onClick={this.filterPostsByType.bind(this, 4)} className={this.state.postType === 4 ? "nav-link active" : "nav-link"}><span className="key bg-green"></span> FAQs</a>
         </li>
 
         <li className="nav-item">
-          <a href="#" onClick={this.filterPostsByType.bind(this, 4)} className={this.state.postType === 4 ? "nav-link active" : "nav-link"}>Jobs</a>
+          <a href="#" onClick={this.filterPostsByType.bind(this, 5)} className={this.state.postType === 5 ? "nav-link active" : "nav-link"}><span className="key bg-pink"></span> Jobs</a>
         </li>
         <li className="nav-item">
-          <a href="#" onClick={this.filterPostsByType.bind(this, 5)} className={this.state.postType === 5 ? "nav-link active" : "nav-link"}>Department News</a>
+          <a href="#" onClick={this.filterPostsByType.bind(this, 6)} className={this.state.postType === 6 ? "nav-link active" : "nav-link"}><span className="key bg-blue"></span> Department News</a>
         </li>
         <li className="nav-item">
-          <a href="#" onClick={this.filterPostsByType.bind(this, 6)} className={this.state.postType === 6 ? "nav-link active" : "nav-link"}>Links &amp; Forms</a>
+          <a href="#" onClick={this.filterPostsByType.bind(this, 7)} className={this.state.postType === 7 ? "nav-link active" : "nav-link"}><span className="key bg-yellow"></span> Links &amp; Forms</a>
         </li>
       </ul>
     )
@@ -60,27 +57,23 @@ export default class DepartmentPosts extends React.Component {
 
   _ui_render_post_type_class(post_type) {
     switch(post_type) {
-      case 1:
-        return 'post-type--announcements';
-      break;
-
-      case 2:
+      case 3:
         return 'post-type--howto';
       break;
 
-      case 3:
+      case 4:
         return 'post-type--faq';
       break;
 
-      case 4:
+      case 5:
         return 'post-type--job';
       break;
 
-      case 5:
+      case 6:
         return 'post-type--blog';
       break;
 
-      case 6:
+      case 7:
         return 'post-type--linkto';
       break;
 
@@ -97,8 +90,10 @@ export default class DepartmentPosts extends React.Component {
       return (
         <div key={index} className="department-post-list">
           <article className={self._ui_render_post_type_class(post.post_type_id)}>
-            <a href={self._ui_link_render(post)}>{post.title}</a>
-            <p>{post.details}</p>
+            <a className="post-title" href={self._ui_link_render(post)}><span className="key"></span> {post.title}</a>
+            <span className="date">{moment(post.updated_at).format('ll')}</span>
+            <p>{post.summary}</p>
+            <a href={self._ui_link_render(post)}>Read more</a>
           </article>
         </div>
         )

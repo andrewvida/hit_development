@@ -1,5 +1,13 @@
 module ApplicationHelper
 
+  def get_announcements
+    Post.where(post_type_id: 1)
+  end
+
+  def get_bulletins(department_id=nil)
+    Post.where(post_type_id: 2, department_id:department_id)
+  end
+
   def get_departments
     depts = Department.all
     depts
@@ -17,10 +25,6 @@ module ApplicationHelper
   def all_tags
     tags = Gutentag::Tag.all
     tags
-  end
-
-  def new_announcement_count
-    announcements = Post.where(post_type_id: 1).count
   end
 
   def current_user

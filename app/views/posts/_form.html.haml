@@ -37,7 +37,7 @@
                   %p
                     %span.bold=type.title
                     =type.description
-              %input.form-control{name:'post[post_type_id]', value: 1, type:'radio', id:"pt-#{type.id}"}
+              %input.form-control{name:'post[post_type_id]', value: type.id, type:'radio', id:"pt-#{type.id}"}
 
     .row
       .col-9

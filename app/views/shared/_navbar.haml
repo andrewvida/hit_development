@@ -7,14 +7,17 @@
       %nav
         %a#tour-announcements.link{:href => "#"}
           Our Announcements
-          %span.badge.badge-pill.badge-danger=new_announcement_count
+          %span.badge.badge-pill.badge-danger=get_announcements.count
 
         #option-set-1
           %a#tour-departments.nav-link.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button", "data-target"=>"option-set-1"}
             IT Departments
           .dropdown-menu.nav-departments{"aria-labelledby" => "tour-departments"}
             -get_departments.each do |dept|
-              %a.dropdown-item{href: department_path(dept) }=dept.name
+              %a.dropdown-item{ href: department_path(dept) }
+                %span.label=dept.name
+                -unless get_bulletins(dept.id).empty?
+                  %span.badge.badge-pill.badge-info=get_bulletins(dept.id).count
 
     .options-container
       %nav

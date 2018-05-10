@@ -37,6 +37,14 @@
     %meta{:content => "#ffffff", :name => "theme-color"}/
 
   %body
+    #announcements
+      -get_announcements.each do |announcement|
+        %a.announcement-item{href: post_path(announcement)}
+          %span.icon
+            %i.fa.fa-exclamation-triangle
+          .content
+            %date=announcement.updated_at.strftime("%A %b %d, %Y")
+            %p=truncate(announcement.summary, length: 140)
     #application-container
       .app-layout
         =render 'shared/sidebar', {department_tags: tags_by_department}
@@ -44,6 +52,7 @@
           =render 'shared/navbar'
           #content-wrapper
             =yield
+
     =render 'shared/footer'
 
     / jQuery

@@ -142,22 +142,120 @@ puts 'PostTypes created.'
 
 # Create Posts
 # -------------------------------
-# 100.times do |index|
-#   post = Post.create!( title: Faker::Lorem.sentence(1),
-#                        summary: Faker::Lorem.paragraph(4),
-#                        body: Faker::Lorem.paragraph(8),
-#                        post_type_id: PostType.all.sample.id,
-#                        author: User.all.sample,
-#                        image_url: nil,
-#                        action_url: nil,
-#                        expiration_date: nil,
-#                        department: Department.all.sample)
-#   post.tag_names = [tags.sample, tags.sample, tags.sample, tags.sample]
-#   post.save!
-#   puts post.title
-# end
+today = Date.today # => Thu, 07 May 2015
+today.next_week    # => Mon, 11 May 2015
 
-# puts '100 Posts created.'
+1.times do |index|
+  post = Post.create!( title: Faker::Lorem.sentence(1),
+                       summary: Faker::Lorem.paragraph(4),
+                       body: Faker::Lorem.paragraph(8),
+                       post_type_id: 1,
+                       author: User.all.sample,
+                       image_url: nil,
+                       action_url: nil,
+                       expiration_date: today.next_week,
+                       department: Department.all.sample)
+  post.tag_names = [tags.sample, tags.sample, tags.sample, tags.sample]
+  post.save!
+  puts post.title
+end
+puts '1 Post (Announcement) created.'
+
+3.times do |index|
+  post = Post.create!( title: Faker::Lorem.sentence(1),
+                       summary: Faker::Lorem.paragraph(4),
+                       body: Faker::Lorem.paragraph(8),
+                       post_type_id: 2,
+                       author: User.all.sample,
+                       image_url: nil,
+                       action_url: Faker::Internet.url,
+                       expiration_date: today.next_week,
+                       department: Department.all.sample)
+  post.tag_names = [tags.sample, tags.sample, tags.sample, tags.sample]
+  post.save!
+  puts post.title
+end
+puts '3 Posts (Bulletin) created.'
+
+10.times do |index|
+  post = Post.create!( title: Faker::Lorem.sentence(1),
+                       summary: Faker::Lorem.paragraph(4),
+                       body: Faker::Lorem.paragraph(12),
+                       post_type_id: 3,
+                       author: User.all.sample,
+                       image_url: Faker::LoremPixel.image("800x600"),
+                       action_url: Faker::Internet.url,
+                       expiration_date: nil,
+                       department: Department.all.sample)
+  post.tag_names = [tags.sample, tags.sample, tags.sample, tags.sample]
+  post.save!
+  puts post.title
+end
+puts '10 Posts (How-to) created.'
+
+10.times do |index|
+  post = Post.create!( title: Faker::Lorem.sentence(1),
+                       summary: Faker::Lorem.paragraph(4),
+                       body: Faker::Lorem.paragraph(8),
+                       post_type_id: 4,
+                       author: User.all.sample,
+                       image_url: Faker::LoremPixel.image("800x600"),
+                       action_url: Faker::Internet.url,
+                       expiration_date: nil,
+                       department: Department.all.sample)
+  post.tag_names = [tags.sample, tags.sample, tags.sample, tags.sample]
+  post.save!
+  puts post.title
+end
+puts '10 Posts (FAQ) created.'
+
+5.times do |index|
+  post = Post.create!( title: Faker::Lorem.sentence(1),
+                       summary: Faker::Lorem.paragraph(4),
+                       body: Faker::Lorem.paragraph(8),
+                       post_type_id: 5,
+                       author: User.all.sample,
+                       image_url: nil,
+                       action_url: Faker::Internet.url,
+                       expiration_date: today.next_week,
+                       department: Department.all.sample)
+  post.tag_names = [tags.sample, tags.sample, tags.sample, tags.sample]
+  post.save!
+  puts post.title
+end
+puts '5 Posts (Job) created.'
+
+20.times do |index|
+  post = Post.create!( title: Faker::Lorem.sentence(1),
+                       summary: Faker::Lorem.paragraph(4),
+                       body: Faker::Lorem.paragraph(8),
+                       post_type_id: 6,
+                       author: User.all.sample,
+                       image_url: Faker::LoremPixel.image("800x600"),
+                       action_url: Faker::Internet.url,
+                       expiration_date: nil,
+                       department: Department.all.sample)
+  post.tag_names = [tags.sample, tags.sample, tags.sample, tags.sample]
+  post.save!
+  puts post.title
+end
+puts '20 Posts (Blog) created.'
+
+20.times do |index|
+  post = Post.create!( title: Faker::Lorem.sentence(1),
+                       summary: Faker::Lorem.paragraph(4),
+                       body: Faker::Lorem.paragraph(4),
+                       post_type_id: 6,
+                       author: User.all.sample,
+                       image_url: nil,
+                       action_url: Faker::Internet.url,
+                       expiration_date: nil,
+                       department: Department.all.sample)
+  post.tag_names = [tags.sample, tags.sample, tags.sample, tags.sample]
+  post.save!
+  puts post.title
+end
+puts '20 Posts (Linkto) created.'
 
 # Edit Permissions
 # -------------------------------

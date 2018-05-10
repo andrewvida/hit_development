@@ -4,9 +4,17 @@
     = @department.mission
     %a{href: edit_department_path(@department)} Edit department
 
-
 #department-post-list
   -unless @posts.empty?
+    #bulletins
+      -get_bulletins(@department.id).each do |bulletin|
+        %a.bulletin-item{href: post_path(bulletin)}
+          %span.icon
+            %i.fa.fa-exclamation-circle
+          .content
+            %date=bulletin.updated_at.strftime("%A %b %d, %Y")
+            %p=truncate(bulletin.summary, length: 100)
+
     =react_component('DepartmentPosts', {posts: @posts})
   -else
     .empty

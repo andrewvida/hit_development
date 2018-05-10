@@ -33,3 +33,56 @@ body {
   padding: rem(20);
   margin: rem(20) 0;
 }
+
+#bulletins,
+#announcements {
+  background: $white;
+  .bulletin-item,
+  .announcement-item {
+    display: flex;
+    margin-bottom: rem(10);
+    background: $white;
+    color: $black;
+    text-decoration: none;
+    align-items: stretch;
+
+    .content,
+    span.icon {
+      margin: 0;
+      flex: 0 0 auto;
+      padding: rem(10);
+    }
+
+    .content {
+      date {
+        color: $ccc;
+      }
+      p {
+        width: auto;
+        margin: 0;
+      }
+    }
+
+    span.icon {
+      background: $orange;
+      color: $white;
+      text-align: center;
+      font-size: rem(20);
+    }
+  }
+
+  .announcement-item { margin-bottom: 0; }
+  .announcement-item span.icon { background: $red; }
+
+  .announcement-item {
+    background:  rgba($red, 0.3);
+
+    .content date { color: $halfblack; }
+  }
+
+  .bulletin-item {
+    background: rgba($orange, 0.3);
+
+    .content date { color: $halfblack; }
+  }
+}

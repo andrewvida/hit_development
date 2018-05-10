@@ -1,0 +1,12 @@
+#announcement-sidebar
+  -unless get_announcements.empty?
+    %div.announcements-section
+      -get_announcements.each do |announcement|
+        .announcement-content
+          %span.summary=truncate(announcement.summary, length: 50)
+
+  -unless get_bulletins.empty?
+    %div.bulletins-section
+      -get_bulletins.each do |bulletin|
+        .bulletin-content
+          %span.summary=truncate(bulletin.summary, length: 50)

@@ -3,30 +3,57 @@
   padding: rem(40);
 }
 
+#department-post-list {
+  span.key {
+    @include border-radius($round);
+    display: block;
+    width: rem(10);
+    height: rem(10);
+    margin: rem(10) auto;
+  }
+}
+
 #department-posts {
+
   .department-post-list {
     > article {
-      margin-bottom: rem(10);
+      border-bottom:1px solid $light;
       padding: rem(20);
+
+      a.post-title {
+        font-size: rem(18);
+        color: $dark;
+        font-weight: bold;
+        text-decoration: none;
+        transition: color 0.3s;
+
+        &:hover { color: $blue; }
+      }
+
+      span.date { display: block; color: $ccc; }
+
+      p { margin: 0; }
+
+      span.key {
+        display: inline-block;
+        margin: 0 rem(10) 0 0;
+      }
     }
 
-    .post-type--announcements {
-      border: 5px solid $red;
-    }
     .post-type--faq {
-      border: 5px solid $green;
+      span.key { background: $green }
     }
     .post-type--howto {
-      border: 5px solid $purple;
+      span.key { background: $purple }
     }
     .post-type--linkto {
-      border: 5px solid $orange;
+      span.key { background: $yellow }
     }
     .post-type--blog {
-      border: 5px solid $blue;
+      span.key { background: $blue }
     }
     .post-type--job {
-      border: 5px solid $yellow;
+      span.key { background: $pink }
     }
   }
 }

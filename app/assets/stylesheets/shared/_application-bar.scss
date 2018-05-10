@@ -53,6 +53,16 @@
         }
 
         a.btn-primary span.badge { background: $yellow; color: $black; }
+
+        a.dropdown-item {
+          span.label {
+            width: rem(150);
+            display: inline-block;
+          }
+          span.badge {
+            display: inline-block;
+          }
+        }
       }
 
       &:last-child { flex: 1 1 auto; }
