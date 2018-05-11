@@ -183,7 +183,7 @@ puts '3 Posts (Bulletin) created.'
                        body: Faker::Lorem.paragraph(12),
                        post_type_id: 3,
                        author: User.all.sample,
-                       image_url: Faker::LoremPixel.image("800x600"),
+                       image_url: 'https://placeimg.com/800/600/nature',
                        action_url: Faker::Internet.url,
                        expiration_date: nil,
                        department: Department.all.sample)
@@ -199,7 +199,7 @@ puts '10 Posts (How-to) created.'
                        body: Faker::Lorem.paragraph(8),
                        post_type_id: 4,
                        author: User.all.sample,
-                       image_url: Faker::LoremPixel.image("800x600"),
+                       image_url: 'https://placeimg.com/800/600/nature',
                        action_url: Faker::Internet.url,
                        expiration_date: nil,
                        department: Department.all.sample)
@@ -231,7 +231,7 @@ puts '5 Posts (Job) created.'
                        body: Faker::Lorem.paragraph(8),
                        post_type_id: 6,
                        author: User.all.sample,
-                       image_url: Faker::LoremPixel.image("800x600"),
+                       image_url: 'https://placeimg.com/800/600/nature',
                        action_url: Faker::Internet.url,
                        expiration_date: nil,
                        department: Department.all.sample)

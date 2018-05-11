@@ -57,3 +57,20 @@
     }
   }
 }
+
+#post-detail-view {
+
+  .post-detail-body {
+    p,
+    p span {
+      font-size: rem(20) !important;
+    }
+
+    img {
+      max-width: rem(400);
+      padding: rem(10);
+      background: $light;
+      border:1px solid $ccc;
+    }
+  }
+}

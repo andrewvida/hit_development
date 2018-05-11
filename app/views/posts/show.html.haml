@@ -3,22 +3,18 @@
     %span= notice
 
 #post-detail-view
-  %h1= @post.title
-
-  -@post.tag_names.each do |tag|
-    %span.badge.badge-primary=tag
+  %h1.secondary= @post.title
 
   %p
-    Posted by:
+    Written by:
     =link_to @post.author.name, user_path(@post.author)
     for
     =link_to @post.department.name, department_path(@post.department)
 
-  %p
-    Post type:
-    = @post.post_type_id
 
-  %p.lead= @post.body.html_safe
+
+  %div.post-detail-body
+    =@post.body.html_safe
 
   %div
     =link_to 'Edit', edit_post_path(@post)

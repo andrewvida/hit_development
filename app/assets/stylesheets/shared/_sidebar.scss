@@ -22,25 +22,6 @@
     form input { width: 100%; }
   }
 
-  .tag-cluster {
-    .tags-container {
-      display: flex;
-      flex-wrap: wrap;
-      a {
-        @include border-radius;
-        @include shadow;
-        margin: 0 rem(5) rem(5) 0;
-        background: $blue;
-        color: $white;
-        border: none;
-        padding: rem(5) rem(10);
-        text-decoration: none;
-      }
-    }
-
-
-  }
-
   .links {
 
     &.actions {
