@@ -2,3 +2,12 @@
 #user-detail-view {
   padding: rem(40);
 }
+
+#department-heads {
+  display: flex;
+  flex-wrap: wrap;
+  article {
+    flex: 0 0 auto;
+    width: 33%;
+  }
+}

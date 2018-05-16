@@ -13,9 +13,11 @@
   }
 }
 
-#department-posts {
+#department-posts,
+#type-posts {
 
-  .department-post-list {
+  .department-post-list,
+  .type-post-list {
     > article {
       border-bottom:1px solid $light;
       padding: rem(20);

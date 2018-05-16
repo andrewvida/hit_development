@@ -5,12 +5,12 @@
       %label Tags
       .tags-container
         -department_tags.each do |tag|
-          %a{href:home_search_path(terms:tag.name)}
+          %a{href:search_path(terms:tag.name)}
             %span{role:'tag'}=tag.name
 
   .links.actions
     %label Actions
-    %a{href: home_search_path(terms:'')}
+    %a{href: search_path(terms:'')}
       %span.fa.fa-plus.mr-1
       Search
     %a{href: new_post_path}
@@ -30,11 +30,11 @@
 
   .links
     %label Resources
-    %a{href: '#'}
+    %a{href: '/careers.html'}
       Careers
       %span.badge.badge-warning.ml-1 New
-    %a{href: '#'} FAQs
-    %a{href: '#'} How-Tos
-    %a{href: '#'} Forms
-    %a{href: '#'} Leadership
+    %a{href: '/faqs.html'} FAQs
+    %a{href: '/howtos.html'} How-Tos
+    %a{href: '/linkto.html'} Links &amp; Forms
+    %a{href: '/leadership.html'} Leadership
     %a{href: users_path} Teammates

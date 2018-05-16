@@ -1,12 +1,12 @@
-#announcement-sidebar
-  -unless get_announcements.empty?
-    %div.announcements-section
-      -get_announcements.each do |announcement|
-        .announcement-content
-          %span.summary=truncate(announcement.summary, length: 50)
-
-  -unless get_bulletins.empty?
-    %div.bulletins-section
-      -get_bulletins.each do |bulletin|
-        .bulletin-content
-          %span.summary=truncate(bulletin.summary, length: 50)
+-unless get_announcements.empty?
+  #announcements
+    -get_announcements.each do |announcement|
+      %div.alert{'data-alert'=>'alert', role:'alert'}
+        %a.announcement-item{href: post_path(announcement)}
+          %span.icon
+            %i.fa.fa-exclamation-triangle
+          .content
+            %date=announcement.updated_at.strftime("%A %b %d, %Y")
+            %p=truncate(announcement.summary, length: 140)
+          %button.close{"aria-label" => "Close", "data-dismiss" => "alert", :type => "button"}
+            %span{"aria-hidden" => "true"} &#215;

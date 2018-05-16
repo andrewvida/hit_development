@@ -3,6 +3,7 @@ body {
 
   #application-container {
     background: $white;
+    min-height: rem(700);
   }
 }
 
@@ -37,6 +38,7 @@ body {
 #bulletins,
 #announcements {
   background: $white;
+
   .bulletin-item,
   .announcement-item {
     display: flex;
@@ -84,5 +86,20 @@ body {
     background: rgba($orange, 0.3);
 
     .content date { color: $halfblack; }
+  }
+}
+
+#announcements {
+  .alert {
+    padding: 0;
+    border:none;
+    margin: 0;
+
+    button {
+      outline: none;
+      position: absolute;
+      top: rem(20);
+      right: rem(20);
+    }
   }
 }

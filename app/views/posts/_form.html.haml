@@ -50,7 +50,7 @@
           =select_tag 'post[department_id]', options_from_collection_for_select(@permissions[:available_departments], 'id', 'name'), { :class => 'form-control form-control-lg'}
 
     .form-group
-      = form.label :image_url, 'Preview Image URL (Optional)'
+      = form.label :image_url, 'Video URL (Optional)'
       = form.text_field :image_url, id: :post_image_url, class:'form-control form-control-lg'
 
     .form-group.tags.required

@@ -1,0 +1,6 @@
+=render 'shared/navbar'
+#department-intro
+  %h1 Links &amp; Forms
+  %p.lead Find forms and other resources here.
+#department-post-list
+  =react_component('PostsByType', {posts: @linkto_posts})

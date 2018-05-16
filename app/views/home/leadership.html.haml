@@ -1,0 +1,11 @@
+=render 'shared/navbar'
+#department-intro
+  %h1 Leadership
+  %p.lead When something goes wrong, we take it on the chin.
+#department-heads
+  -@managers.each do |manager|
+    %article.department-head
+      %img{src:manager.photo_url}
+      %p=manager.name
+      %p=manager.department.name
+      %a{href:"mailto:#{manager.email}"} Email

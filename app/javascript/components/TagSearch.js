@@ -17,7 +17,7 @@ export default class TagSearch extends React.Component {
   }
 
   handleSearch () {
-    window.location = "/home/search?terms=" + this.state.tags
+    window.location = "/search?terms=" + this.state.tags
   }
 
   handleActiveState () {

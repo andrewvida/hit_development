@@ -1,0 +1,6 @@
+=render 'shared/navbar'
+#department-intro
+  %h1 How-Tos
+  %p.lead Learn how to do stuff with these awesome help guides.
+#department-post-list
+  =react_component('PostsByType', {posts: @howto_posts})

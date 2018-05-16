@@ -1,0 +1,6 @@
+=render 'shared/navbar'
+#department-intro
+  %h1 FAQs
+  %p.lead Please don't make us answer this again. Take a look at the most common questions asked of Hendrick IT.
+#department-post-list
+  =react_component('PostsByType', {posts: @faq_posts})
