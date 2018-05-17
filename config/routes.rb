@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   get 'home/index'
   get 'search', to: 'home#search'
   get 'faqs', to: 'home#faqs'

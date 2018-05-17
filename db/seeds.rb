@@ -107,16 +107,26 @@ puts 'Departments created.'
 # Create Users
 # -------------------------------
 100.times do |index|
-  user = User.create!( name: Faker::Name.unique.name,
+  user = User.create!( first_name: Faker::Name.unique.name,
+                       last_name: Faker::Name.unique.name,
                        email:Faker::Internet.email,
                        title:Faker::Job.title,
                        department: Department.all.sample,
                        photo_url: "https://robohash.org/#{tags.sample}",
-                       bio: Faker::Lorem.sentence(5))
+                       bio: Faker::Lorem.sentence(5),
+                       primary_phone: Faker::PhoneNumber.phone_number,
+                       mobile_phone: Faker::PhoneNumber.cell_phone)
   user.tag_names = [tags.sample, tags.sample, tags.sample, tags.sample]
   user.save!
-  puts user.name
+  puts "#{user.first_name} #{user.last_name}"
 end
+
+# Add admin user (needed for Okta)
+User.create!(first_name: 'Andre',
+            last_name: 'Ortiz',
+            email: 'hello@andreortiz.com',
+            department: 1,
+            tag_names: [tags.sample, tags.sample, tags.sample, tags.sample])
 
 puts '100 Users created.'
 
