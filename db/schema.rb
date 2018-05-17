@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180502172703) do
+ActiveRecord::Schema.define(version: 20180517174845) do
 
   create_table "departments", force: :cascade do |t|
     t.string "name"
@@ -76,7 +76,6 @@ ActiveRecord::Schema.define(version: 20180502172703) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "name"
     t.string "email"
     t.string "title"
     t.integer "department_id"
@@ -86,7 +85,17 @@ ActiveRecord::Schema.define(version: 20180502172703) do
     t.string "slack_username"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "sign_in_count", default: 0, null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string "current_sign_in_ip"
+    t.string "last_sign_in_ip"
+    t.string "primary_phone"
+    t.string "mobile_phone"
+    t.string "first_name"
+    t.string "last_name"
     t.index ["department_id"], name: "index_users_on_department_id"
+    t.index ["email"], name: "index_users_on_email", unique: true
   end
 
 end
