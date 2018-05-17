@@ -19,6 +19,8 @@ gem 'uglifier', '>= 1.3.0'
 
 gem 'webpacker'
 gem 'react-rails'
+gem 'devise'
+gem 'devise_saml_authenticatable'
 
 # HAML
 gem 'haml'
@@ -55,6 +57,7 @@ group :development, :test do
 
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3'
+  gem 'dotenv-rails'
 end
 
 group :production do
