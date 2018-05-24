@@ -1,5 +1,6 @@
 import React from "react"
 import moment from 'moment'
+import Sugar from 'sugar'
 
 export default class DepartmentPosts extends React.Component {
   constructor(props){
@@ -99,7 +100,7 @@ export default class DepartmentPosts extends React.Component {
             <article className={self._ui_render_post_type_class(post.post_type_id)}>
               <a className="post-title" href={self._ui_link_render(post)}><span className="key"></span> {post.title}</a>
               <span className="date">{moment(post.updated_at).format('ll')}</span>
-              <p>{post.summary}</p>
+              <p>{Sugar.String.truncate(post.summary, 200)}</p>
               <a href={self._ui_link_render(post)}>Read more</a>
             </article>
           </div>

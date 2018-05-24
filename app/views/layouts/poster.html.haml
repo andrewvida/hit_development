@@ -38,9 +38,11 @@
 
   %body
     =render 'shared/latest-announcement'
+
     #application-container
       .app-layout
         #content-area
+          =render 'shared/navbar'
           = yield
 
     =render 'shared/footer'

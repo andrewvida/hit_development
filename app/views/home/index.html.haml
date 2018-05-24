@@ -1,4 +1,3 @@
-=render 'shared/navbar'
 =render 'welcome'
 =render 'teammates'
 =render 'featured-stories'
@@ -9,14 +8,10 @@
   .container
     .message
       %h1.secondary Customers Served in 2018
-      %p.lead=Faker::Lorem.paragraph(5)
+      %p.lead Together with our automotive partners, we strive for excellence in all we do. Our customers and our community are our highest priority and service to both is our mission.
 
     #brand-partners
       .logos
         -1.upto(28) do |index|
           .logo.partner
             %img{src:"/web-images/brands/#{index}.jpg"}
-
-/ #map-container
-/   .map-container
-/     %iframe{:allowfullscreen => "", :frameborder => "0", :src => "https://www.google.com/maps/embed/v1/place?key=AIzaSyBzjA3FrZHAO7zR6dVahHkPM41lIiSvo2U\n    &q=Space+Needle,Seattle+WA", :style => "border:0", :width => "100%"}

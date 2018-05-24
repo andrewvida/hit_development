@@ -1,22 +1,35 @@
--unless notice.nil?
-  .alert.alert-info
-    %span= notice
+#show-post
+  -unless notice.nil?
+    .alert.alert-info
+      %span= notice
 
-#post-detail-view
-  %h1.secondary= @post.title
+  #post-detail-view
+    .title
+      %h1= @post.title
 
-  %p
-    Written by:
-    =link_to @post.author.name, user_path(@post.author)
-    for
-    =link_to @post.department.name, department_path(@post.department)
+    .author
+      %p
+        Written by:
+        =link_to @post.author.name, user_path(@post.author)
+        for
+        =link_to @post.department.name, department_path(@post.department)
+
+    -unless @post.tag_names.empty?
+      .tag-cluster
+        .tags-container
+          -@post.tag_names.each do |tag|
+            %a{href:search_path(terms:tag)}
+              %span{role:'tag'}=tag
+
+
+    .post-detail-body
+      =@post.body.html_safe
+
+    %div
+      =link_to 'Edit', edit_post_path(@post)
+      |
+      =link_to 'Back', department_path(@post.department.id)
 
 
 
-  %div.post-detail-body
-    =@post.body.html_safe
 
-  %div
-    =link_to 'Edit', edit_post_path(@post)
-    |
-    =link_to 'Back', department_path(@post.department.id)

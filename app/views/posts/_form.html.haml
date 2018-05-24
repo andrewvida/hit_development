@@ -48,10 +48,15 @@
         .form-group.required
           = form.label :department_id, 'Choose a department'
           =select_tag 'post[department_id]', options_from_collection_for_select(@permissions[:available_departments], 'id', 'name'), { :class => 'form-control form-control-lg'}
-
-    .form-group
-      = form.label :image_url, 'Video URL (Optional)'
-      = form.text_field :image_url, id: :post_image_url, class:'form-control form-control-lg'
+    .row
+      .col-6
+        .form-group
+          = form.label :image_url, 'Video URL (Optional)'
+          = form.text_field :image_url, id: :post_image_url, class:'form-control form-control-lg'
+      .col-6
+        .form-group
+          = form.label :action_url, 'Additional URL (Optional)'
+          = form.text_field :action_url, id: :post_action_url, class:'form-control form-control-lg'
 
     .form-group.tags.required
       %label Tags
@@ -61,18 +66,17 @@
       = form.label :body
       =react_component('Wysiwyg', {body: post.body || ''})
 
-    .form-group.field.details.required
-      = form.label :summary
-      = form.text_area :summary, id: :post_summary, class: 'form-control form-control-lg'
+
 
     .row
-      .col-6
-        .form-group
-          = form.label :action_url, 'Additional URL (Optional)'
-          = form.text_field :action_url, id: :post_action_url, class:'form-control form-control-lg'
-      .col-6
-        = form.label :expiration_date, 'When will this post expire? (Optional)'
-        =react_component('DatePicker', {expiration_date: post.expiration_date || ''})
+      .col-8
+        .form-group.field.details.required
+          = form.label :summary
+          = form.text_area :summary, id: :post_summary, class: 'form-control form-control-lg'
+      .col-4
+        .form-group.field
+          = form.label :expiration_date, 'When will this post expire? (Optional)'
+          =react_component('DatePicker', {expiration_date: post.expiration_date || ''})
     .actions
       %input.wz-output{type:'hidden', name: 'post[body]'}
       %input.expiration-output{type:'hidden', name: 'post[expiration_date]'}

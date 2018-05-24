@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
+  layout 'poster', only: [:show]
   include ApplicationHelper
 
   # GET /posts
@@ -11,6 +12,7 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.json
   def show
+
   end
 
   # GET /posts/new

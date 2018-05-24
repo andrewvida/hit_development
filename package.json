@@ -14,7 +14,8 @@
     "react-draft-wysiwyg": "^1.12.12",
     "react-reveal": "^1.2.1",
     "react-tagsinput": "^3.19.0",
-    "react_ujs": "^2.4.4"
+    "react_ujs": "^2.4.4",
+    "sugar": "^2.0.4"
   },
   "devDependencies": {
     "webpack-dev-server": "2.11.2"

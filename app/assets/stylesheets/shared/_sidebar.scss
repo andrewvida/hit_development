@@ -1,5 +1,4 @@
 #sidebar {
-  border-right:1px solid $ccc;
   background: $brand;
 
   .tag-cluster,
@@ -25,11 +24,9 @@
   .links {
 
     &.actions {
-      border:1px solid rgba($white, 0.1);
+      border:1px solid rgba($red, 0.1);
       padding: rem(10) rem(10);
-      background: rgba($white, 0.1);
-      border-left: none;
-      border-right: none;
+
 
       svg {
         @include border-radius($round);
@@ -54,7 +51,7 @@
 
       &:hover {
         color: $white;
-        background: $halfblack;
+        background: $navy;
 
       }
     }

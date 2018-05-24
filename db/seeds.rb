@@ -107,10 +107,10 @@ puts 'Departments created.'
 # Create Users
 # -------------------------------
 100.times do |index|
-  user = User.create!( first_name: Faker::Name.unique.name,
-                       last_name: Faker::Name.unique.name,
+  user = User.create!( first_name: Faker::Name.first_name,
+                       last_name: Faker::Name.last_name,
                        email:Faker::Internet.email,
-                       title:Faker::Job.title,
+                       title:Faker::Name.title,
                        department: Department.all.sample,
                        photo_url: "https://robohash.org/#{tags.sample}",
                        bio: Faker::Lorem.sentence(5),
@@ -122,10 +122,10 @@ puts 'Departments created.'
 end
 
 # Add admin user (needed for Okta)
-User.create!(first_name: 'Andre',
+andre = User.create!(first_name: 'Andre',
             last_name: 'Ortiz',
             email: 'hello@andreortiz.com',
-            department: 1,
+            department: Department.first,
             tag_names: [tags.sample, tags.sample, tags.sample, tags.sample])
 
 puts '100 Users created.'
@@ -273,5 +273,11 @@ puts '20 Posts (Linkto) created.'
 100.times do |index|
   EditPermission.create!(user: User.all.sample, department: Department.all.sample, post_type: PostType.all.sample)
 end
+
+# My Permissions
+post_types.each_with_index do |post_type, index|
+  EditPermission.create!(user: andre, department: Department.find(2), post_type: PostType.find(index+1))
+end
+
 
 puts '100 Permissions created.'

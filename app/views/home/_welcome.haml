@@ -1,15 +1,10 @@
 #welcome-container
   .container
     .welcome-message
-      %span Welcome to Hendrick IT
-      %span.highlight We pride ourselves
-      %span on wire management.
+      %span.highlight Welcome to Hendrick IT
+      %span Connecting our teams, stores and customers.
 
-      .action
-        %a.btn.btn-link{href:'/mission'}
-          Our commitment to the Hendrick team
-          &rarr;
-
+  .container
     #tour-search.search-container
       .tag-search-container
         =react_component('TagSearch', {taggings: all_tags})
