@@ -4,6 +4,10 @@
       %span= notice
 
   #post-detail-view
+    %button.btn.btn-default{:onclick => 'window.history.back();'}
+      %i.fa.fa-angle-left.blue
+      Go Back
+
     .title
       %h1= @post.title
 

@@ -1,13 +1,13 @@
 %div{id:'department-intro'}
   %h1= @department.name
-  %p.lead
-    = @department.mission
-    %a{href: edit_department_path(@department)} Edit department
+  %p.lead= @department.mission
+  %a.btn.btn-default{href: edit_department_path(@department)}
+    %i.fa.fa-pencil-alt
 
 #department-post-list
-  -unless @posts.empty?
+  -unless get_bulletins(@department.id).empty?
     #bulletins
-      %h5 Department bulletins
+      %h5 Department Bulletins
       -get_bulletins(@department.id).each do |bulletin|
         %a.bulletin-item{href: post_path(bulletin)}
 
@@ -15,10 +15,12 @@
             %date=bulletin.updated_at.strftime("%A %b %d, %Y")
             %p=truncate(bulletin.summary, length: 110)
 
-
-    =react_component('DepartmentPosts', {posts: @posts})
-  -else
-    .empty
-      %p.lead
-        This Department doesn't have any Posts yet.
-        %a{href: new_post_path} Write a new Post.
+  #department-posts-container
+    %h5 Department Articles
+    -unless @posts.empty?
+      =react_component('DepartmentPosts', {posts: @posts})
+    -else
+      .empty
+        %p.lead
+          This Department doesn't have any Posts yet.
+          %a{href: new_post_path} Write a new Post.

@@ -1,11 +1,40 @@
 #department-intro {
-  padding: rem(40);
-  border-bottom: 3px solid $brand;
+  padding: rem(20);
+  border-top: 3px solid $light;
+  font-family: $brand-font;
+  background: $light;
+
+  h1 {
+    color: $blue;
+    margin-bottom: rem(10);
+    font-size: rem(18);
+  }
+
+  p.lead {
+    font-family: 'Titillium Web';
+    font-weight: 300;
+    color: $dark;
+    font-size: rem(22);
+  }
 }
 
 #department-post-list,
 #type-posts {
   margin: rem(20);
+}
+
+#department-posts-container {
+  margin-top: rem(20);
+  border-left:3px solid $blue;
+
+  h5 {
+    color: $white;
+    font-weight: normal;
+    background: $blue;
+    display: inline-block;
+    padding: rem(10);
+    margin-bottom: 0;
+  }
 }
 
 #department-form-view {
@@ -14,7 +43,6 @@
 
 #type-posts {
   display: flex;
-
   .type-post-nav,
   .type-post-list {
     flex: 0 0 auto;
@@ -31,33 +59,36 @@
 }
 
 #post-list-filter-container {
-    margin: rem(20) 0;
-    font-size: rem(14);
-    display: flex;
-    background: $light;
-    border:1px solid $ccc;
-    @include border-radius;
-    overflow: hidden;
+  margin: 0;
+  font-size: rem(14);
+  display: flex;
+  background: $light;
+  border:1px solid $ccc;
+  overflow: hidden;
 
-    ul.nav-pills li.nav-item a { color: $dark; border-radius: 0;}
-    ul.nav-pills li.nav-item a.active { background: white; }
+  ul.nav-pills li.nav-item a {
+    color: $dark;
+    border-radius: 0;
+    font-size: rem(12);
+  }
+  ul.nav-pills li.nav-item a.active { background: white; }
 
 
-    ul.nav-pills li.nav-item {
-      border-right: 1px solid $ccc;
-      font-weight: bold;
+  ul.nav-pills li.nav-item {
+    border-right: 1px solid $ccc;
+    font-weight: bold;
 
-    }
-    ul.nav-pills,
-    .filter-field {
-      flex: 1 1 auto;
-    }
+  }
+  ul.nav-pills,
+  .filter-field {
+    flex: 1 1 auto;
+  }
 
-    .filter-field {
-      margin-top: rem(15);
-      margin-right: rem(15);
-      input {
+  .filter-field {
+    margin-top: rem(5);
+    margin-right: rem(5);
+    input {
 
-      }
     }
   }
+}

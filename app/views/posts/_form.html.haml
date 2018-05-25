@@ -29,15 +29,16 @@
       .post-type-container
         -@permissions[:available_post_types].each do |type|
           .post-type
-            %label{for:"pt-#{type.id}"}
-              .post-type-block
-                .icon
-                  %img{src:"/admin-images/#{type.name}.png"}
-                .description
-                  %p
-                    %span.bold=type.title
-                    =type.description
-              %input.form-control{name:'post[post_type_id]', value: type.id, type:'radio', id:"pt-#{type.id}"}
+            %span=type.title
+            / %label{for:"pt-#{type.id}"}
+            /   .post-type-block
+            /     .icon
+            /       %img{src:"/admin-images/#{type.name}.png"}
+            /     .description
+            /       %p
+            /         %span.bold=type.title
+            /         =type.description
+            /   %input.form-control{name:'post[post_type_id]', value: type.id, type:'radio', id:"pt-#{type.id}"}
 
     .row
       .col-9

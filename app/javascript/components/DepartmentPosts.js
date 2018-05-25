@@ -30,23 +30,23 @@ export default class DepartmentPosts extends React.Component {
     return (
       <ul className="nav-pills nav">
         <li className="nav-item">
-          <a href="#" onClick={this.filterPostsByType.bind(this, null)} className={this.state.postType === null ? "nav-link active" : "nav-link"}><span className="key bg-light"></span> All</a>
+          <a href="#" data-toggle="tooltip" data-placement="bottom" title="All" onClick={this.filterPostsByType.bind(this, null)} className={this.state.postType === null ? "nav-link active" : "nav-link"}><span className="key bg-light"></span></a>
         </li>
         <li className="nav-item">
-          <a href="#" onClick={this.filterPostsByType.bind(this, 3)} className={this.state.postType === 3 ? "nav-link active" : "nav-link"}><span className="key bg-purple"></span> How-Tos</a>
+          <a href="#" data-toggle="tooltip" data-placement="bottom" title="How-Tos" onClick={this.filterPostsByType.bind(this, 3)} className={this.state.postType === 3 ? "nav-link active" : "nav-link"}><span className="key bg-purple"></span></a>
         </li>
         <li className="nav-item">
-          <a href="#" onClick={this.filterPostsByType.bind(this, 4)} className={this.state.postType === 4 ? "nav-link active" : "nav-link"}><span className="key bg-green"></span> FAQs</a>
+          <a href="#" data-toggle="tooltip" data-placement="bottom" title="FAQs" onClick={this.filterPostsByType.bind(this, 4)} className={this.state.postType === 4 ? "nav-link active" : "nav-link"}><span className="key bg-green"></span></a>
         </li>
 
         <li className="nav-item">
-          <a href="#" onClick={this.filterPostsByType.bind(this, 5)} className={this.state.postType === 5 ? "nav-link active" : "nav-link"}><span className="key bg-pink"></span> Jobs</a>
+          <a href="#" data-toggle="tooltip" data-placement="bottom" title="Jobs" onClick={this.filterPostsByType.bind(this, 5)} className={this.state.postType === 5 ? "nav-link active" : "nav-link"}><span className="key bg-pink"></span></a>
         </li>
         <li className="nav-item">
-          <a href="#" onClick={this.filterPostsByType.bind(this, 6)} className={this.state.postType === 6 ? "nav-link active" : "nav-link"}><span className="key bg-blue"></span> Department News</a>
+          <a href="#" data-toggle="tooltip" data-placement="bottom" title="Department News" onClick={this.filterPostsByType.bind(this, 6)} className={this.state.postType === 6 ? "nav-link active" : "nav-link"}><span className="key bg-blue"></span></a>
         </li>
         <li className="nav-item">
-          <a href="#" onClick={this.filterPostsByType.bind(this, 7)} className={this.state.postType === 7 ? "nav-link active" : "nav-link"}><span className="key bg-yellow"></span> Links &amp; Forms</a>
+          <a href="#" data-toggle="tooltip" data-placement="bottom" title="Links & Forms" onClick={this.filterPostsByType.bind(this, 7)} className={this.state.postType === 7 ? "nav-link active" : "nav-link"}><span className="key bg-yellow"></span></a>
         </li>
       </ul>
     )

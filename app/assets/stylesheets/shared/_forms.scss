@@ -61,9 +61,9 @@
   .post-type {
     @include border-radius;
     flex: 0 0 auto;
-    width: 48%;
+    flex-wrap: wrap;
     padding: rem(10);
-    margin: rem(5);
+    width: 25%;
     background: $light;
     position: relative;
     cursor: pointer;
