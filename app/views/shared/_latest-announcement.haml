@@ -3,10 +3,11 @@
     -get_announcements.each do |announcement|
       %div.alert{'data-alert'=>'alert', role:'alert'}
         %a.announcement-item{href: post_path(announcement)}
-          %span.icon
-            %i.fa.fa-exclamation-triangle
-          .content
-            %date=announcement.updated_at.strftime("%A %b %d, %Y")
-            %p=truncate(announcement.summary, length: 140)
-          %button.close{"aria-label" => "Close", "data-dismiss" => "alert", :type => "button"}
-            %span{"aria-hidden" => "true"} &#215;
+          .announcement-icon-button{role:'button'}
+            %span.icon
+              %i.fa.fa-exclamation-triangle
+
+          .announcement-message
+            .message-wrapper
+              %date=announcement.updated_at.strftime("%A %b %d, %Y")
+              %p=truncate(announcement.summary, length: 140)

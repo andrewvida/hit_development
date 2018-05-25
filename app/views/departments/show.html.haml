@@ -7,13 +7,14 @@
 #department-post-list
   -unless @posts.empty?
     #bulletins
+      %h5 Department bulletins
       -get_bulletins(@department.id).each do |bulletin|
         %a.bulletin-item{href: post_path(bulletin)}
-          %span.icon
-            %i.fa.fa-exclamation-circle
-          .content
+
+          .bulletin-content
             %date=bulletin.updated_at.strftime("%A %b %d, %Y")
-            %p=truncate(bulletin.summary, length: 100)
+            %p=truncate(bulletin.summary, length: 110)
+
 
     =react_component('DepartmentPosts', {posts: @posts})
   -else
