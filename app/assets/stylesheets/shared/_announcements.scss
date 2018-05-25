@@ -1,0 +1,93 @@
+#announcements {
+  position: fixed;
+  bottom: rem(20);
+  right: rem(20);
+
+  .alert .icon, [role=alert] .icon { background: none; }
+
+  &:hover {
+    .announcement-message {
+      right: rem(20);
+      opacity: 1;
+    }
+  }
+
+  .announcement-icon-button {
+    position: fixed;
+    bottom: rem(20);
+    right: rem(20);
+    text-align: center;
+    color: $white;
+    line-height: rem(50);
+    background: $red;
+    width: rem(50);
+    height: rem(50);
+    @include shadow;
+    @include border-radius($round);
+    @include pulse;
+  }
+
+  .announcement-message {
+    background: $red;
+    color: $white;
+    width: rem(300);
+    position: fixed;
+    bottom: rem(80);
+    right: rem(-300);
+    opacity: 0;
+    @include border-radius;
+    transition: all 0.3s;
+
+    .message-wrapper {
+      padding: rem(10);
+
+      date {
+        font-size: rem(14);
+        color: $yellow;
+      }
+    }
+  }
+}
+
+#bulletins {
+  h5 {
+    color: $white;
+    font-weight: normal;
+    background: $orange;
+    display: inline-block;
+    padding: rem(10);
+    margin-bottom: 0;
+  }
+
+  .bulletin-item {
+    position: relative;
+    overflow: hidden;
+    display: block;
+    padding: rem(10);
+    text-decoration: none;
+    border-left: 3px solid $orange;
+    transition: background 0.3s;
+
+    &:hover { background: rgba($orange, 0.2); }
+
+    .bulletin-icon {
+      position: absolute;
+      font-size: rem(150);
+      opacity: 0.8;
+      top: rem(-20);
+      right: rem(20);
+      color: $halfwhite;
+      transform: rotate(-15deg);
+    }
+
+    .bulletin-content {
+      color: $dark;
+      font-size: rem(18);
+      p { margin-bottom: 0; }
+      date {
+        font-size: rem(14);
+        color: $orange;
+      }
+    }
+  }
+}

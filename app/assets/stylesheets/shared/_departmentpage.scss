@@ -6,28 +6,6 @@
 #department-post-list,
 #type-posts {
   margin: rem(20);
-
-  .post-list-filter-container {
-    margin: rem(40) 0;
-    font-size: rem(14);
-    display: flex;
-
-    ul.nav-pills li.nav-item a { color: $dark; }
-    ul.nav-pills li.nav-item a.active { background: $dark; color: $white; }
-
-
-
-    ul.nav-pills,
-    .filter-field {
-      flex: 1 1 auto;
-    }
-
-    .filter-field {
-      input {
-        width: 100%;
-      }
-    }
-  }
 }
 
 #department-form-view {
@@ -49,7 +27,37 @@
 
   .type-post-list { width: 80%; }
 
-  .post-list-filter-container {
-    margin: 0 0 rem(20) 0;
-  }
+
 }
+
+#post-list-filter-container {
+    margin: rem(20) 0;
+    font-size: rem(14);
+    display: flex;
+    background: $light;
+    border:1px solid $ccc;
+    @include border-radius;
+    overflow: hidden;
+
+    ul.nav-pills li.nav-item a { color: $dark; border-radius: 0;}
+    ul.nav-pills li.nav-item a.active { background: white; }
+
+
+    ul.nav-pills li.nav-item {
+      border-right: 1px solid $ccc;
+      font-weight: bold;
+
+    }
+    ul.nav-pills,
+    .filter-field {
+      flex: 1 1 auto;
+    }
+
+    .filter-field {
+      margin-top: rem(15);
+      margin-right: rem(15);
+      input {
+
+      }
+    }
+  }

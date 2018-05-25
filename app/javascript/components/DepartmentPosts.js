@@ -116,7 +116,7 @@ export default class DepartmentPosts extends React.Component {
   render () {
     return (
       <div>
-        <div className="post-list-filter-container">
+        <div id="post-list-filter-container">
           { this._ui_filter_navigation() }
           <div className="filter-field">
             <input type="text" className="form-control" onChange={this.filterPostsByInput.bind(this)} placeholder="Search by title"/>
