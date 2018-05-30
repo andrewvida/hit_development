@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   resources :posts
   resources :departments
 
-  get 'users/:user_id/available_post_types', to: 'users#available_post_types'
+  get 'users/:id/available_post_types', to: 'users#available_post_types'
 
   root to: 'home#index'
 end

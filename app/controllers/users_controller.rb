@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_user, only: [:show, :edit, :update, :destroy,
+                                  :available_post_types]
 
   # GET /users
   # GET /users.json
@@ -14,8 +15,9 @@ class UsersController < ApplicationController
 
   # GET /users/1/available_post_types
   def available_post_types
-    respond_to do |format| 
-      format.json { render json: PostType.all }
+    post_types = @user.edit_permissions.map(&:post_type).uniq
+    respond_to do |format|
+      format.json { render json: post_types }
     end
   end
 
