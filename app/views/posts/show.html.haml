@@ -25,8 +25,7 @@
             %a{href:search_path(terms:tag)}
               %span{role:'tag'}=tag
 
-
-    -unless @post.video_url.nil?
+    -unless @post.video_url === "" || @post.video_url.nil?
       .post-detail-video
         %iframe#ytplayer{:frameborder => "0", :height => "480", :src => "https://www.youtube.com/embed/#{format_youtube_video_for_embed(@post.video_url)}?autoplay=1&origin=#{root_url}", :type => "text/html", :width => "100%"}
 
