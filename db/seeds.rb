@@ -125,7 +125,12 @@ end
 andre = User.create!(first_name: 'Andre',
             last_name: 'Ortiz',
             email: 'hello@andreortiz.com',
+            title:Faker::Name.title,
             department: Department.first,
+            bio: Faker::Lorem.sentence(5),
+            primary_phone: Faker::PhoneNumber.phone_number,
+            mobile_phone: Faker::PhoneNumber.cell_phone,
+            photo_url: "https://robohash.org/#{tags.sample}",
             tag_names: [tags.sample, tags.sample, tags.sample, tags.sample])
 
 puts '100 Users created.'
@@ -155,7 +160,7 @@ puts 'PostTypes created.'
 today = Date.today # => Thu, 07 May 2015
 today.next_week    # => Mon, 11 May 2015
 
-1.times do |index|
+2.times do |index|
   post = Post.create!( title: Faker::Lorem.sentence(1),
                        summary: Faker::Lorem.paragraph(4),
                        body: Faker::Lorem.paragraph(8),
@@ -169,7 +174,7 @@ today.next_week    # => Mon, 11 May 2015
   post.save!
   puts post.title
 end
-puts '1 Post (Announcement) created.'
+puts '2 Post (Announcement) created.'
 
 3.times do |index|
   post = Post.create!( title: Faker::Lorem.sentence(1),

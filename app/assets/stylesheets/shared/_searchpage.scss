@@ -46,5 +46,41 @@
   padding: rem(40) 0;
   section {
     margin-bottom: rem(40);
+
+    &.posts {
+      a { text-decoration: none; }
+
+      date {
+        display: block;
+        color: $ccc;
+      }
+
+      p.summary { color: $black; }
+
+      span.title {
+        font-weight: bold;
+        color: $blue;
+      }
+    }
+
+    &.users {
+      a { text-decoration: none; }
+      .user-result-container {
+        display: flex;
+        align-items:center;
+        .avatar {
+          @include avatar(50);
+        }
+
+        .user-details {
+          span { display: block; }
+          span.name {
+            font-weight: bold;
+          }
+          span.department { color: $ccc;}
+        }
+      }
+
+    }
   }
 }

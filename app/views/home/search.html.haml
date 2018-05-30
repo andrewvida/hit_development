@@ -6,31 +6,45 @@
 
 #search-results-container
   %section.departments.container
-    %h4.secondary="Department Results - #{@results[:depts].count}"
+    %h4
+      Department Results
+      %span.badge.badge-primary=@results[:depts].count
 
     %ul.list-group
       -@results[:depts].each do |result|
         %li.list-group-item
           =link_to department_path(result) do
             %b=result.name
-            %i=result.tag_names
 
   %section.users.container
-    %h4.secondary="User Results - #{@results[:users].count}"
+    %h4
+      User Results
+      %span.badge.badge-primary=@results[:users].count
 
     %ul.list-group
       -@results[:users].each do |result|
         %li.list-group-item
           =link_to user_path(result) do
-            %b=result.name
-            %i=result.tag_names
+            .user-result-container
+              .avatar
+                %img{src: result.photo_url}
+
+              .user-details
+                %span.name=result.name
+                %span.department=result.department.name
 
   %section.posts.container
-    %h4.secondary="Post Results - #{@results[:posts].count}"
+    %h4
+      Post Results
+      %span.badge.badge-primary=@results[:posts].count
+
 
     %ul.list-group
-      -@results[:posts].each do |result|
+      -@results[:posts].each do |post|
         %li.list-group-item
-          =link_to post_path(result) do
-            %b=truncate(result.title, length: 50)
-            %i=result.tag_names
+          =link_to post_path(post) do
+            %article
+              %date
+                =post.updated_at.strftime("%a %b %e, %y")
+              %span.title=post.title
+              %p.summary=truncate(post.summary, length: 140)

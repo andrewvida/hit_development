@@ -4,7 +4,9 @@
 #department-heads.container
   -@managers.each do |manager|
     %article.department-head
-      %img{src:manager.photo_url}
-      %p=manager.name
-      %p=manager.department.name
-      %a{href:"mailto:#{manager.email}"} Email
+      .avatar
+        %img{src:manager.photo_url}
+      .content
+        %span.name=manager.name
+        %p=manager.department.name
+        %a{href:"mailto:#{manager.email}"} Email

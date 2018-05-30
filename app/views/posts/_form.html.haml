@@ -29,23 +29,22 @@
       .post-type-container
         -@permissions[:available_post_types].each do |type|
           .post-type
-            %span=type.title
-            / %label{for:"pt-#{type.id}"}
-            /   .post-type-block
-            /     .icon
-            /       %img{src:"/admin-images/#{type.name}.png"}
-            /     .description
-            /       %p
-            /         %span.bold=type.title
-            /         =type.description
-            /   %input.form-control{name:'post[post_type_id]', value: type.id, type:'radio', id:"pt-#{type.id}"}
+            %label{for:"pt-#{type.id}"}
+              .post-type-block
+                .icon
+                  %img{src:"/admin-images/#{type.name}.png"}
+                .description
+                  %p
+                    %span.bold=type.title
+                    =type.description
+              %input.form-control{name:'post[post_type_id]', value: type.id, type:'radio', id:"pt-#{type.id}"}
 
     .row
-      .col-9
+      .col-8
         .form-group.required
           = form.label :title
           = form.text_field :title, id: :post_title, class:'form-control form-control-lg'
-      .col-3
+      .col-4
         .form-group.required
           = form.label :department_id, 'Choose a department'
           =select_tag 'post[department_id]', options_from_collection_for_select(@permissions[:available_departments], 'id', 'name'), { :class => 'form-control form-control-lg'}
@@ -59,6 +58,10 @@
           = form.label :action_url, 'Additional URL (Optional)'
           = form.text_field :action_url, id: :post_action_url, class:'form-control form-control-lg'
 
+    .form-group.field
+      =form.label :expiration_date, 'When will this post expire? (Optional)'
+      =react_component('DatePicker', {expiration_date: post.expiration_date || ''})
+
     .form-group.tags.required
       %label Tags
       =react_component('TagSearch', {taggings: all_tags, terms: post.tag_names, binding:'post[tag_names]'})
@@ -67,17 +70,10 @@
       = form.label :body
       =react_component('Wysiwyg', {body: post.body || ''})
 
+    .form-group.field.details.required
+      = form.label :summary
+      = form.text_area :summary, id: :post_summary, class: 'form-control form-control-lg'
 
-
-    .row
-      .col-8
-        .form-group.field.details.required
-          = form.label :summary
-          = form.text_area :summary, id: :post_summary, class: 'form-control form-control-lg'
-      .col-4
-        .form-group.field
-          = form.label :expiration_date, 'When will this post expire? (Optional)'
-          =react_component('DatePicker', {expiration_date: post.expiration_date || ''})
     .actions
       %input.wz-output{type:'hidden', name: 'post[body]'}
       %input.expiration-output{type:'hidden', name: 'post[expiration_date]'}

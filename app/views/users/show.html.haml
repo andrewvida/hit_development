@@ -10,7 +10,7 @@
     %a{href:"mailto: #{@user.email}"} Email me
 
   .bio
-    = @user.bio.html_safe
+    = @user.bio.html_safe?
 
   .tags
     = @user.tag_names

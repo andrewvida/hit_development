@@ -1,3 +1,12 @@
 #department-heads {
+  display: flex;
+  article.department-head {
+    flex: 0 0 auto;
+    width: 30%;
+    margin: rem(5);
 
+    img.avatar {
+      margin: auto;
+    }
+  }
 }

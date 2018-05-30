@@ -19,15 +19,12 @@
 @import "shared/userpages";
 @import "shared/layout";
 @import "shared/announcements";
+@import "shared/leadership";
 
 // Add to HASG
 .btn-success { color: $white; }
 
 #application-bar .avatar {
-  @include border-radius($round);
-  width: rem(40);
-  height: rem(40);
-  overflow: hidden;
-  display: block;
-  img { width: 100% }
+  @include avatar(40);
 }
+

@@ -80,7 +80,7 @@ ActiveRecord::Schema.define(version: 20180517174845) do
     t.string "title"
     t.integer "department_id"
     t.boolean "department_head", default: false
-    t.text "bio"
+    t.text "bio", default: ""
     t.string "photo_url", default: "https://robohash.org/hendrick"
     t.string "slack_username"
     t.datetime "created_at", null: false

@@ -1,7 +1,7 @@
 module ApplicationHelper
 
   def get_announcements
-    Post.where(post_type_id: 1)
+    [ Post.where(post_type_id: 1).last ]
   end
 
   def get_bulletins(department_id=nil)

@@ -39,6 +39,15 @@
   border-radius: $rad;
 }
 
+@mixin avatar($size) {
+  @include border-radius($round);
+  width: rem($size);
+  height: rem($size);
+  overflow: hidden;
+  display: block;
+  img { width: 100% }
+}
+
 // FUNCTIONS & LOOPS
 // ===============================================
 @function rem($size, $base-font-size: 16) {
