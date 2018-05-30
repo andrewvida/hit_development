@@ -61,4 +61,9 @@ module ApplicationHelper
       tags = []
     end
   end
+
+  def format_youtube_video_for_embed(video_url)
+    yt = Rack::Utils.parse_query URI(video_url).query
+    yt['v']
+  end
 end

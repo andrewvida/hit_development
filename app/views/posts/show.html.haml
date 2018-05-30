@@ -26,6 +26,15 @@
               %span{role:'tag'}=tag
 
 
+    -unless @post.video_url.nil?
+      .post-detail-video
+        %iframe#ytplayer{:frameborder => "0", :height => "480", :src => "https://www.youtube.com/embed/#{format_youtube_video_for_embed(@post.video_url)}?autoplay=1&origin=#{root_url}", :type => "text/html", :width => "100%"}
+
+    -unless @post.action_url.nil?
+      .post-detail-link
+        %label Check the Link
+        %a{href:@post.action_url}=@post.action_url
+
     .post-detail-body
       =@post.body.html_safe
 

@@ -1,20 +1,30 @@
-%p#notice= notice
 #user-detail-view
-  .avatar
-    %img{src:@user.photo_url}
+  .user-flex
+    .user-side-container
+      .avatar
+        %img{src:@user.photo_url}
 
-  .information
-    %h3= @user.name
-    %p= @user.title
-    %p= @user.department.name
-    %a{href:"mailto: #{@user.email}"} Email me
+      .links
+        %a{href:"mailto: #{@user.email}"} Email me
+        %a{href:"#"}=@user.slack_username || 'Slack Username'
 
-  .bio
-    = @user.bio.html_safe?
+      %hr
+      .tag-cluster
+        %label Tags
+        .tags-container
+          -@user.tag_names.each do |tag|
+            %a{href:search_path(terms:tag)}
+              %span{role:'tag'}=tag
 
-  .tags
-    = @user.tag_names
 
-  = link_to 'Edit', edit_user_path(@user)
-  |
-  \#{link_to 'Back', users_path}
+    .user-detail-container
+      .information
+        %h3
+          = @user.name
+          = link_to 'Edit', edit_user_path(@user)
+        %span.title= @user.title
+        %span.department= @user.department.name
+
+        .bio
+          %label Bio
+          = @user.bio.html_safe

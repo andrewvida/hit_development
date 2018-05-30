@@ -14,7 +14,7 @@ class UsersController < ApplicationController
 
   # GET /users/1/available_post_types
   def available_post_types
-    respond_to do |format| 
+    respond_to do |format|
       format.json { render json: PostType.all }
     end
   end
@@ -72,7 +72,9 @@ class UsersController < ApplicationController
 
     def set_user_object
       object = {
-        name: user_params[:name],
+        first_name: user_params[:first_name],
+        last_name: user_params[:last_name],
+        slack_username: user_params[:slack_username],
         email: user_params[:email],
         bio: user_params[:bio],
         photo_url: user_params[:photo_url],
@@ -88,6 +90,6 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:name, :email, :title, :department_id, :tag_names, :bio, :photo_url)
+      params.require(:user).permit(:first_name, :last_name, :email, :slack_username, :title, :department_id, :tag_names, :bio, :photo_url)
     end
 end

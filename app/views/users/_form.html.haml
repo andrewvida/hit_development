@@ -9,11 +9,15 @@
           %li= message
 
   .row
-    .col-9
+    .col-4
       .form-group
-        = form.label :name
-        = form.text_field :name, id: :user_name, class:'form-control form-control-lg'
-    .col-3
+        = form.label :first_name
+        = form.text_field :first_name, id: :user_first_name, class:'form-control form-control-lg'
+    .col-4
+      .form-group
+        = form.label :last_name
+        = form.text_field :last_name, id: :user_last_name, class:'form-control form-control-lg'
+    .col-4
       .form-group
         = form.label :department_id, 'Choose a department'
         =select_tag 'user[department_id]', options_from_collection_for_select(get_departments, 'id', 'name'), { :class => 'form-control form-control-lg'}
@@ -22,9 +26,19 @@
     = form.label :title
     = form.text_field :title, id: :user_title, class:'form-control form-control-lg'
 
+  .row
+    .col-6
+      .form-group
+        = form.label :email
+        = form.text_field :email, id: :user_email, class:'form-control form-control-lg'
+    .col-6
+      .form-group
+        = form.label :slack_username
+        = form.text_field :slack_username, id: :user_slack_username, class:'form-control form-control-lg'
+
   .form-group
-    = form.label :email
-    = form.text_field :email, id: :user_email, class:'form-control form-control-lg'
+    = form.label :photo_url
+    = form.text_field :photo_url, id: :user_photo_url, class:'form-control form-control-lg'
 
   .form-group.field.details
     =form.label :bio

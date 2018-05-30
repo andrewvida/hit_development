@@ -65,7 +65,7 @@ ActiveRecord::Schema.define(version: 20180517174845) do
     t.integer "department_id"
     t.integer "post_type_id"
     t.integer "author_id"
-    t.string "image_url"
+    t.string "video_url"
     t.string "action_url"
     t.datetime "expiration_date"
     t.datetime "created_at", null: false

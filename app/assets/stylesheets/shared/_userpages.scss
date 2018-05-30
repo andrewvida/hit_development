@@ -11,3 +11,53 @@
     width: 33%;
   }
 }
+
+#user-detail-view {
+  .user-flex {
+    display:flex;
+
+    .user-side-container,
+    .user-detail-container {
+      padding-right: rem(20);
+    }
+
+    .user-side-container { width: rem(200) }
+    .user-side-container .avatar {
+      @include avatar(180);
+    }
+
+    .links {
+      padding: rem(20);
+      background: $light;
+      margin: rem(20) 0;
+
+      a { display: block; }
+    }
+
+    .user-detail-container {
+      flex: 1 1 auto;
+      .information {
+        span { display: block; }
+        span.title {
+          color: $blue;
+          font-family: $brand-font;
+          font-size: rem(18);
+        }
+        span.department {
+          color: $ccc;
+        }
+
+        .bio {
+          border-top: 1px solid $ccc;
+          margin-top: rem(20);
+          padding-top: rem(20);
+          label {
+            display: block;
+            color: $ccc;
+            font-weight: bold;
+          }
+        }
+      }
+    }
+  }
+}

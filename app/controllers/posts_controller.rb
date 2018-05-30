@@ -75,7 +75,7 @@ class PostsController < ApplicationController
         post_type_id: post_params[:post_type_id],
         body: post_params[:body],
         action_url: post_params[:action_url],
-        image_url: post_params[:image_url],
+        video_url: post_params[:video_url],
         author_id: post_params[:author_id],
         summary: post_params[:summary],
         department_id: post_params[:department_id],
@@ -89,6 +89,6 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:title, :body, :department_id, :author_id, :post_type_id, :tag_names, :image_url, :action_url, :summary, :expiration_date)
+      params.require(:post).permit(:title, :body, :department_id, :author_id, :post_type_id, :tag_names, :video_url, :action_url, :summary, :expiration_date)
     end
 end

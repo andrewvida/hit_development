@@ -113,7 +113,7 @@ puts 'Departments created.'
                        title:Faker::Name.title,
                        department: Department.all.sample,
                        photo_url: "https://robohash.org/#{tags.sample}",
-                       bio: Faker::Lorem.sentence(5),
+                       bio: Faker::Lorem.sentence(100),
                        primary_phone: Faker::PhoneNumber.phone_number,
                        mobile_phone: Faker::PhoneNumber.cell_phone)
   user.tag_names = [tags.sample, tags.sample, tags.sample, tags.sample]
@@ -127,7 +127,7 @@ andre = User.create!(first_name: 'Andre',
             email: 'hello@andreortiz.com',
             title:Faker::Name.title,
             department: Department.first,
-            bio: Faker::Lorem.sentence(5),
+            bio: Faker::Lorem.sentence(100),
             primary_phone: Faker::PhoneNumber.phone_number,
             mobile_phone: Faker::PhoneNumber.cell_phone,
             photo_url: "https://robohash.org/#{tags.sample}",
@@ -166,7 +166,7 @@ today.next_week    # => Mon, 11 May 2015
                        body: Faker::Lorem.paragraph(8),
                        post_type_id: 1,
                        author: User.all.sample,
-                       image_url: nil,
+                       video_url: nil,
                        action_url: nil,
                        expiration_date: today.next_week,
                        department: Department.all.sample)
@@ -182,7 +182,7 @@ puts '2 Post (Announcement) created.'
                        body: Faker::Lorem.paragraph(8),
                        post_type_id: 2,
                        author: User.all.sample,
-                       image_url: nil,
+                       video_url: nil,
                        action_url: Faker::Internet.url,
                        expiration_date: today.next_week,
                        department: Department.all.sample)
@@ -198,7 +198,7 @@ puts '3 Posts (Bulletin) created.'
                        body: Faker::Lorem.paragraph(12),
                        post_type_id: 3,
                        author: User.all.sample,
-                       image_url: 'https://placeimg.com/800/600/nature',
+                       video_url: 'https://www.youtube.com/watch?v=SKV6h_5XFbk',
                        action_url: Faker::Internet.url,
                        expiration_date: nil,
                        department: Department.all.sample)
@@ -214,7 +214,7 @@ puts '10 Posts (How-to) created.'
                        body: Faker::Lorem.paragraph(8),
                        post_type_id: 4,
                        author: User.all.sample,
-                       image_url: 'https://placeimg.com/800/600/nature',
+                       video_url: 'https://www.youtube.com/watch?v=SKV6h_5XFbk',
                        action_url: Faker::Internet.url,
                        expiration_date: nil,
                        department: Department.all.sample)
@@ -230,7 +230,7 @@ puts '10 Posts (FAQ) created.'
                        body: Faker::Lorem.paragraph(8),
                        post_type_id: 5,
                        author: User.all.sample,
-                       image_url: nil,
+                       video_url: nil,
                        action_url: Faker::Internet.url,
                        expiration_date: today.next_week,
                        department: Department.all.sample)
@@ -246,7 +246,7 @@ puts '5 Posts (Job) created.'
                        body: Faker::Lorem.paragraph(8),
                        post_type_id: 6,
                        author: User.all.sample,
-                       image_url: 'https://placeimg.com/800/600/nature',
+                       video_url: 'https://www.youtube.com/watch?v=SKV6h_5XFbk',
                        action_url: Faker::Internet.url,
                        expiration_date: nil,
                        department: Department.all.sample)
@@ -262,7 +262,7 @@ puts '20 Posts (Blog) created.'
                        body: Faker::Lorem.paragraph(4),
                        post_type_id: 6,
                        author: User.all.sample,
-                       image_url: nil,
+                       video_url: nil,
                        action_url: Faker::Internet.url,
                        expiration_date: nil,
                        department: Department.all.sample)

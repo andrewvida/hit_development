@@ -93,3 +93,26 @@
     }
   }
 }
+
+#show-post {
+  .post-detail-video {
+    margin-top: rem(20);
+  }
+
+  .post-detail-link {
+    background: $light;
+    padding: rem(20);
+    margin-top: rem(20);
+    label {
+      display: block;
+    }
+    a {
+      font-size: rem(24);
+    }
+  }
+
+  .post-detail-body {
+    margin-top: rem(20);
+  }
+
+}
