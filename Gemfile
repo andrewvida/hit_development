@@ -19,8 +19,8 @@ gem 'uglifier', '>= 1.3.0'
 
 gem 'webpacker'
 gem 'react-rails'
-gem 'devise'
-gem 'devise_saml_authenticatable'
+# gem 'devise'
+# gem 'devise_saml_authenticatable'
 
 # HAML
 gem 'haml'

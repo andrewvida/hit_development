@@ -27,9 +27,9 @@ module ApplicationHelper
     tags
   end
 
-  # def current_user
-  #   User.all.sample
-  # end
+  def current_user
+    User.all.sample
+  end
 
   def current_user_post_permission(user)
     permission = EditPermission.where(user: user)

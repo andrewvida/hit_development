@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  devise :saml_authenticatable, :trackable
+  # devise :saml_authenticatable, :trackable
   belongs_to :department
   Gutentag::ActiveRecord.call self
 
